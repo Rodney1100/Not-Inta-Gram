@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Inta Gram</title>
+    {{!-- Material icons --}}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    {{!-- import materialize --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    {{!-- <link rel="stylesheet" href="/stylesheets/style.css"> --}}
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>
+                <a href="/">Not Inta Gram</a>
+            </h1>
+            <nav>
+                {{#if loggedIn}}
+                <a href="/feed">Feed</a>
+                <a href="/profile">My Profile</a>
+                <button id="logout" class="btn-no-style">logout</button>
+                {{else}}
+                <a href="/login">login</a>
+                {{/if}}
+            </nav>
+        </header>
+        <main>
+            {{{ body }}}
+        </main>
+    </div>
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
+</body>
+
+</html>
