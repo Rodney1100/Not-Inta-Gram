@@ -11,20 +11,20 @@ router.get('/', withAuth, (req, res) => {
         },
         attributes: [
             'id',
-            'post_url',
-            'title',
+            'image_url',
+            'description',
             'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
         include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
+            // {
+            //     model: Comment,
+            //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            //     include: {
+            //         model: User,
+            //         attributes: ['username']
+            //     }
+            // },
             {
                 model: User,
                 attributes: ['username']
@@ -34,7 +34,7 @@ router.get('/', withAuth, (req, res) => {
         .then(dbPostData => {
             // serialize data before passing to template
             const posts = dbPostData.map(post => post.get({ plain: true }));
-            res.render('dashboard', { posts, loggedIn: true });
+            res.render('feed', { posts, loggedIn: true });
         })
         .catch(err => {
             console.log(err);
@@ -46,20 +46,20 @@ router.get('/edit/:id', withAuth, (req, res) => {
     Post.findByPk(req.params.id, {
         attributes: [
             'id',
-            'post_url',
-            'title',
+            'image_url',
+            'description',
             'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
         include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
+            // {
+            //     model: Comment,
+            //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            //     include: {
+            //         model: User,
+            //         attributes: ['username']
+            //     }
+            // },
             {
                 model: User,
                 attributes: ['username']

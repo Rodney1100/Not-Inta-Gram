@@ -8,20 +8,20 @@ router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
             'id',
-            'post_url',
-            'title',
+            'image_url',
+            'description',
             'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
         include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
+            // {
+            //     model: Comment,
+            //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            //     include: {
+            //         model: User,
+            //         attributes: ['username']
+            //     }
+            // },
             {
                 model: User,
                 attributes: ['username']
@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
         .then(dbPostData => {
             const posts = dbPostData.map(post => post.get({ plain: true }));
             // pass a single post object into the homepage template
-            res.render('homepage', {
+            res.render('feed', {
                 posts,
                 loggedIn: req.session.loggedIn
             });
@@ -50,6 +50,10 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+router.get('/signup', (req,res) =>{
+    res.render('signup');
+})
+
 router.get('/post/:id', (req, res) => {
     Post.findOne({
         where: {
@@ -57,20 +61,20 @@ router.get('/post/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'post_url',
-            'title',
+            'image_url',
+            'description',
             'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
         include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
+            // {
+            //     model: Comment,
+            //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            //     include: {
+            //         model: User,
+            //         attributes: ['username']
+            //     }
+            // },
             {
                 model: User,
                 attributes: ['username']
