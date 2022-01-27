@@ -22,11 +22,13 @@
                 <div class="nav-wrapper">
                     <a href="/" class="brand-logo">Not Inta Gram</a>
                     <ul id="nav-mobile" class="right">
-                        <a href= "/new" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
                         {{#if loggedIn}}
-                        <li><a href="/feed">Feed</a></li>
+                        <li>
+                        <a href= "/new" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+                        </li>
+                        <li><a href="/">Feed</a></li>
                         <li><a href="/profile">My Profile</a></li>
-                        <li><a href="logout">logout</a></li>
+                        <li><a id="logout">logout</a></li>
                         {{else}}
                         <li><a href="/login">login</a></li>
                         {{/if}}
