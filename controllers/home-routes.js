@@ -102,4 +102,10 @@ router.get('/post/:id', (req, res) => {
         });
 });
 
+router.get('/new', (req, res) => {
+    res.render('new-post', {
+        loggedIn: req.session.loggedIn
+    });
+});
+
 module.exports = router;
