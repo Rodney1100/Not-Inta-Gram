@@ -3,7 +3,7 @@ const { Post } = require('../models');
 const postdata = [
   {
     description: 'Donec posuere metus vitae ipsum.',
-    image_url: 'https://www.moddb.com/members/melanielove/images/random4',
+    image_url: 'https://unsplash.com/photos/FZWivbri0Xk',
     user_id: 10
   },
   {
