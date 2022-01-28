@@ -1,7 +1,10 @@
+import {getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage"
 const router = require('express').Router();
 const { Post, User, Like, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
+const storage =getStorage();
+const storageRef = ref(storage, 'images')
 
 
 // get all users
@@ -71,16 +74,20 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-    Post.create({
-        image_url: req.body.image_url,
-        description: req.body.description,
-        user_id: req.session.user_id
+    console.log("back end")
+    const file = JSON.parse(JSON.stringify(req.body.image_file));
+    uploadBytes(storageRef, req.body.image_file).then((snapshot) =>{
+        Post.create({
+            image_url: downloadURL,
+            description: req.body.description,
+            user_id: req.session.user_id
+        })
+            .then(dbPostData => res.json(dbPostData))
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            });
     })
-        .then(dbPostData => res.json(dbPostData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
 });
 
 // PUT /api/posts/upvote

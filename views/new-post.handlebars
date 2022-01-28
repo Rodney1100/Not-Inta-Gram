@@ -3,24 +3,24 @@
         <div class="card">
             <div class="card-content">
                 <span class="card-title">Create Post</span>
-                <form action="#">
+                <form action="#" id="new-post-form">
                     <div class="file-field input-field">
                         <div class="btn">
-                            <span>Press to select an image to upload</span>
-                            <input name="image" type="file">
+                            <span>Upload image</span>
+                            <input id="image" name="image" type="file">
                         </div>
                         <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" name="image">
+                            <input class="file-path validate" type="text">
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea name="description-body" id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                            <textarea name="description-body" id="description-body" class="materialize-textarea" data-length="120"></textarea>
                             <label for="textarea2">Enter text</label>
                         </div>
                     </div>
                     <div>
-                        <button type="submit" class="new-post-form">Post</button>
+                        <button type="submit">Post</button>
                     </div>
                 </form>
             </div>

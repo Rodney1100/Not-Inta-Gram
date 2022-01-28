@@ -5,6 +5,7 @@ const path = require('path');
 const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({helpers});
+const fileupload = require('express-fileupload');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -26,6 +27,7 @@ const sess = {
 app.use(session(sess));
 
 app.use(express.json());
+app.use(fileupload({useTempFiles: true}))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
