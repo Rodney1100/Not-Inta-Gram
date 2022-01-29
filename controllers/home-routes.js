@@ -104,13 +104,6 @@ router.get('/signup', (req,res) =>{
     res.render('signup');
 })
 
-//renders profile handlebar
-// router.get('/profile', (req,res) =>{
-//     res.render('profile', {
-//         loggedIn: req.session.loggedIn
-//     });
-// })
-
 //renders new-post handlebar
 router.get('/new', (req, res) => {
     res.render('new-post', {
@@ -118,34 +111,5 @@ router.get('/new', (req, res) => {
     });
 });
 
-router.get('/profile', (req, res) => {
-    Post.findAll({
-        attributes: [
-            'id',
-            'image_url',
-            'description',
-            'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
-        ],
-        include: [
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
-    })
-        .then(dbPostData => {
-            const posts = dbPostData.map(post => post.get({ plain: true }));
-            // pass a single post object into the homepage template
-            res.render('profile', {
-                posts,
-                loggedIn: req.session.loggedIn
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
 
 module.exports = router;
