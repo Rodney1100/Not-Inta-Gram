@@ -42,18 +42,6 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
-    res.render('login');
-});
-
-router.get('/signup', (req,res) =>{
-    res.render('signup');
-})
-
 router.get('/post/:id', (req, res) => {
     Post.findOne({
         where: {
@@ -102,6 +90,28 @@ router.get('/post/:id', (req, res) => {
         });
 });
 
+//renders login handlebar
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
+});
+
+//renders signup handlebar
+router.get('/signup', (req,res) =>{
+    res.render('signup');
+})
+
+//renders profile handlebar
+router.get('/profile', (req,res) =>{
+    res.render('profile', {
+        loggedIn: req.session.loggedIn
+    });
+})
+
+//renders new-post handlebar
 router.get('/new', (req, res) => {
     res.render('new-post', {
         loggedIn: req.session.loggedIn
