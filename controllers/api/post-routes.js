@@ -1,7 +1,11 @@
+// import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage"
+
 const router = require('express').Router();
 const { Post, User, Like, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
+
+
 
 
 // get all users
@@ -69,14 +73,17 @@ router.get('/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
-
+//here
 router.post('/', withAuth, (req, res) => {
     Post.create({
         image_url: req.body.image_url,
         description: req.body.description,
         user_id: req.session.user_id
     })
-        .then(dbPostData => res.json(dbPostData))
+        .then(dbPostData => {
+            res.json(dbPostData)
+            res.render('feed');
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

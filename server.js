@@ -5,6 +5,7 @@ const path = require('path');
 const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({helpers});
+const fileupload = require('express-fileupload');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -23,9 +24,16 @@ const sess = {
     })
 };
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 app.use(session(sess));
 
 app.use(express.json());
+app.use(fileupload({useTempFiles: true}))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
