@@ -1,31 +1,26 @@
-<div class="row">
-    <div class="col s12 m6">
-        <div class="card">
-            <div class="card-content">
-                <span class="card-title">Create Post</span>
-                <form action="#">
-                    <div class="file-field input-field">
-                        <div class="btn">
-                            <span>Press to select an image to upload</span>
-                            <input name="image" type="file">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" name="image">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="description-body" id="textarea2" class="materialize-textarea" data-length="120"></textarea>
-                            <label for="textarea2">Enter text</label>
-                        </div>
-                    </div>
-                    <div>
-                        <button type="submit" class="new-post-form">Post</button>
-                    </div>
-                </form>
-            </div>
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4">
+        <div class = "d-flex flex-column justify-content-left align-items-left">
+           <span class="dot"></span>
+           <button class = "edit">Edit Profile</button>
         </div>
+        <div class = "d-flex flex-column justify-content-center align-items-center">
+           <span class= "name mt-3">Joshua DiFrancesco</span>
+           <span class="id"> @joshdif</span>
+        </div>
+        <div class="text mt-3 justify-content-center align-items-center"> 
+            <span>24 year old web developer student with a passion for gaming, cooking, and learning.
+            </span>
+        </div>
+
+        <ul class = "user-posts">
+            {{#each posts}}
+            <li>
+                {{ this }}
+            </li>
+            {{/each}}
+        </ul>
+
+        
     </div>
 </div>
-
-<script src="/javascript/add-post.js"></script>

@@ -2,3 +2,52 @@ img {
   height: 500px;
   width: 500%;
 }
+
+.dot { /* placeholder for profile picture */
+  height: 125px;
+  width: 125px;
+  background-color: rgb(19, 175, 202);
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.edit {
+  position:absolute;
+  margin-top: 20%;
+  margin-left: 64%;
+  transition-duration: 0.4s;
+}
+
+.edit:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.id{
+  margin-left:1%;
+  margin-bottom: 2%;
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+
+}
+.name {
+  margin-left:1%;
+  margin-bottom: 5%;
+  font-size: 22px;
+  font-weight: bold
+}
+.text {
+
+  text-align: center;
+  font-size: 13px;
+  color: #545454;
+  font-weight: 500
+}
+.join {
+  font-size: 14px;
+  color: #a0a0a0;
+  font-weight: bold
+}
