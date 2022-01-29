@@ -1,0 +1,6 @@
+{{#if posts.length}}
+    <h2>{{user.username}} Posts</h2>
+    {{#each posts as |post|}}
+        {{> profile-postedit post}}
+    {{/each}}
+{{/if}}
