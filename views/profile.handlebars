@@ -1,6 +1,18 @@
-{{#if posts.length}}
-    <h2>{{user.username}} Posts</h2>
+{{!-- {{#if posts.length}}
+    
+{{/if}} --}}
+{{!-- {{#if post.user_id === 1}}
+<h2>{{user.username}} Posts</h2>
     {{#each posts as |post|}}
         {{> profile-postedit post}}
     {{/each}}
-{{/if}}
+{{/if}} --}}
+
+<ul class="post-list">
+    {{#each posts as |post|}}
+    <li>
+        {{> post-info }}
+    </li>
+    {{/each}}
+</ul>
+
