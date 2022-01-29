@@ -13,9 +13,9 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 
 
-// function getValue(id) {
-//     return document.getElementById(id).value;
-// }
+function getValue(id) {
+    return document.getElementById(id).value;
+}
 
 // function getFileName(url) {
 //     return url.split("\\").splice(-1)[0];
