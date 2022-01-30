@@ -1,11 +1,7 @@
-// import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage"
-
 const router = require('express').Router();
 const { Post, User, Like, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
-
-
 
 
 // get all users
