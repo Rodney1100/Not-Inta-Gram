@@ -1,13 +1,16 @@
 import { getStorage, ref, deleteObject } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-storage.js";
 
-//reminder: to add image_name to POST model in order to make deleting file from cloud storage less painful 
-// function getFileName(url) {
-//     return url.split("\\").splice(-1)[0];
-// }
+function getValue(id) {
+    return document.getElementById(id).value;
+}
 
 async function deleteFormHandler(event) {
     event.preventDefault();
-    console.log('hello');
+
+    const imageName = getValue("image-name");
+
+    console.log(imageName);
+
     // const storage = getStorage();
     // // const imageRef =ref(storage, 'image/' + );
 
