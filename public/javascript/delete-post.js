@@ -7,16 +7,16 @@ import { getStorage, ref, deleteObject } from "https://www.gstatic.com/firebasej
 
 async function deleteFormHandler(event) {
     event.preventDefault();
-    
-    const storage = getStorage();
-    // const imageRef =ref(storage, 'image/' + );
+    console.log('hello');
+    // const storage = getStorage();
+    // // const imageRef =ref(storage, 'image/' + );
 
-    deleteObject(imageRef).then(()=> {
+    // deleteObject(imageRef).then(()=> {
         
-    })
-    .catch((err) => {
-        console.log(err);
-    })
+    // })
+    // .catch((err) => {
+    //     console.log(err);
+    // })
 
     // const id = window.location.toString().split('/')[
     //     window.location.toString().split('/').length - 1
@@ -26,7 +26,7 @@ async function deleteFormHandler(event) {
     // });
 
     // if (response.ok) {
-    //     document.location.replace('/profile/');
+    //     document.location.replace('/profile');
     // } else {
     //     alert(response.statusText);
     // }

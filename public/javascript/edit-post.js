@@ -23,10 +23,10 @@ async function editFormHandler(event) {
     });
 
     if (response.ok) {
-        document.location.replace('/profile/');
+        document.location.replace('/profile');
     } else {
         alert(response.statusText);
     }
 }
 
-document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
+document.getElementById('edit-post-form').addEventListener('submit', editFormHandler);

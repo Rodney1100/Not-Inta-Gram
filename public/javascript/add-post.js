@@ -51,13 +51,15 @@ function newFormHandler(event) {
                     method: 'POST',
                     body: JSON.stringify({
                         image_url: url,
-                        description: description
+                        description: description,
+                        image_name: name
                     }),
                     headers: { 'Content-Type': 'application/json' }
                 })
                     .then(res => {
                         console.log(res);
                         newPostForm.reset();
+                        document.location.replace('/');
                     }).catch(err => console.log(err));
             }))
             .catch(console.error);
