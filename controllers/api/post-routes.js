@@ -76,6 +76,7 @@ router.post('/', withAuth, (req, res) => {
     Post.create({
         image_url: req.body.image_url,
         description: req.body.description,
+        image_name: req.body.image_name,
         user_id: req.session.user_id
     })
         .then(dbPostData => {
