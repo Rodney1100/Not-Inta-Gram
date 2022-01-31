@@ -73,7 +73,7 @@ router.get('/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
-//here
+
 router.post('/', withAuth, (req, res) => {
     Post.create({
         image_url: req.body.image_url,

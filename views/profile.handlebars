@@ -1,0 +1,31 @@
+
+
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+    <div class="card p-4">
+        <div class = "d-flex flex-column justify-content-left align-items-left">
+           <span class="dot"></span>
+           <button class = "edit">Edit Profile</button>
+        </div>
+        <div class = "d-flex flex-column justify-content-center align-items-center">
+           <span class= "name mt-3">Joshua DiFrancesco</span>
+           <span class="id"> @joshdif</span>
+        </div>
+        <input type="button" value="save my edits" onclick="saveEdits()"/>
+        <div class="text mt-3 justify-content-center align-items-center" contenteditable="true"  onload="checkEdits()" > 
+            <span>24 year old web developer student with a passion for gaming, cooking, and learning.
+            </span>
+        </div>
+
+        
+    </div>
+</div>
+
+<ul class="post-list">
+    {{#each posts as |post|}}
+    <li>
+        {{> post-info }}
+    </li>
+    {{/each}}
+</ul>
+
+<script src="/javascript/profile.js"></script>
