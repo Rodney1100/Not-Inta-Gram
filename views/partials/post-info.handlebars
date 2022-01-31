@@ -7,12 +7,16 @@
       <a class="waves-effect waves-light btn" id="like-btn"><i class="material-icons left">thumb_up</i></a>
       {{like_count}} {{format_plural "like" like_count}}
       <a class="waves-effect waves-light btn red" id="dislike-btn"><i class="material-icons right">thumb_down</i></a>
+      <noscript id="post-id">{{post.id}}</noscript>
       <div class="card-content">
         <span class="card-title">{{user.username}}</span>
         <p>{{description}}</p>
       </div>
     </div>
   </div>
+
+<script src="/javascript/like.js"></script>
+
 
   {{!-- var like = document.querySelector('#green');
   var dislike = document.querySelector('#red');

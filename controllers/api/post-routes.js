@@ -89,7 +89,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // PUT /api/posts/upvote
-router.put('/upvote', withAuth, (req, res) => {
+router.put('/like', withAuth, (req, res) => {
     // make sure the session exists first
     if (req.session) {
         // pass session id along with all destructured properties on req.body
