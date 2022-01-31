@@ -4,6 +4,8 @@
             <div class="card-image">
                 <img src={{image_url}}>
             </div>
+            <button class="material-icons" id="green">thumb_up</i>
+            <button class="material-icons" id="red">thumb_down</i>
             {{like_count}} {{format_plural "like" like_count}}
             <div class="card-content">
                 <span class="card-title">{{user.username}}</span>
@@ -11,4 +13,25 @@
             </div>
         </div>
     </div>
-</div>
+    
+                       var like = document.querySelector('#green');
+var dislike = document.querySelector('#red');
+
+like.addEventListener('click', function() {
+  
+    if (dislike.classList.contains('red')) {
+      dislike.classList.remove('red');
+    } 
+  this.classList.toggle('green');
+  
+  
+});
+
+dislike.addEventListener('click', function() {
+  
+    if (like.classList.contains('green')) {
+      like.classList.remove('green');
+    } 
+  this.classList.toggle('red');--}}
+  
+});
