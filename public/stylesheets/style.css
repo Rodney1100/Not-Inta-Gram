@@ -2,7 +2,6 @@ img {
   height: 500px;
   width: 500%;
 }
-
 .dot { /* placeholder for profile picture */
   height: 125px;
   width: 125px;
@@ -12,84 +11,61 @@ img {
   margin-left: 5%;
   margin-top: 5%;
 }
-
-.edit { /*Edit profile button*/
+.edit {
   position:absolute;
   margin-top: 20%;
   margin-left: 64%;
   transition-duration: 0.4s;
 }
-
-.edit:hover { 
+.edit:hover {
   background-color: #4CAF50; /* Green */
   color: white;
 }
-
-.id{ /*Users @username*/
+.id{
   margin-left:1%;
   margin-bottom: 2%;
   display: block;
   font-size: 14px;
   font-weight: 600;
-
 }
-.name { /*Name Displayed above users @*/
+.name {
   margin-left:1%;
   margin-bottom: 5%;
   font-size: 22px;
   font-weight: bold
 }
-.text { /*Description for Profile*/
-
+.text {
   text-align: center;
   font-size: 13px;
   color: #545454;
   font-weight: 500
 }
-
-.post-list { /*Container of the feed and card*/
-  
-  align-items: center;
-  justify-content: space-around;
-  margin-left: auto;
-  margin-right: auto;
-
+.join {
+  font-size: 14px;
+  color: #A0A0A0;
+  font-weight: bold
 }
 
-
-.post-container {/*Post + description blocks*/
-  align-items: center;
-  justify-content: space-around;
-  
-  
-  
-
-}
-.feeds { /*Feed of images in main content card*/
-  align-items: center;
-  justify-content: center;
-  border-style: solid;
-  background-color: #5fc9f3;
-  margin-top: 10%;
-  margin-left: auto;
-  margin-right: auto;
-}
-body { /*Handle Bars Main body*/
-  background-color: #57a9f1;
+/* body{
+  margin: 40px;
 }
 
-.brand-logo { /* Not Inta Gram Logo*/
-  justify-content: center;
-  left: 2%;
+button{
+  cursor: pointer;
+  outline: 0;
+  color: #AAA;
+
 }
 
-nav { /* nav bar */
-  height: 80px;
+.btn:focus {
+  outline: none;
 }
-.nav-wrapper { /* Nav Bar content Containing logo, feed, My Profile, and login/logout */
-  
-  border-style: solid;
-  border-color: black;
-  background-color: #5fc9f3;
+
+.green{
+  color: green;
 }
+
+.red{
+  color: red;
+} */
 

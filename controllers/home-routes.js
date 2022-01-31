@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
             'id',
             'image_url',
             'description',
+            'image_name',
             'created_at',
             // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
@@ -51,6 +52,7 @@ router.get('/post/:id', (req, res) => {
             'id',
             'image_url',
             'description',
+            'image_name',
             'created_at',
             // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
@@ -104,18 +106,12 @@ router.get('/signup', (req,res) =>{
     res.render('signup');
 })
 
-//renders profile handlebar
-//router.get('/profile', (req,res) =>{
-    //res.render('profile', {
-        //loggedIn: req.session.loggedIn
-    //});
-//})
-
 //renders new-post handlebar
 router.get('/new', (req, res) => {
     res.render('new-post', {
         loggedIn: req.session.loggedIn
     });
 });
+
 
 module.exports = router;

@@ -2,13 +2,13 @@
     <div class="col s12 m6">
         <div class="card">
             <div class="card-content">
-                <span class="card-title">{{user.username}}</span>
+                <h3 class="card-title" id="image-name" name="image-name">{{post.image_name}}</h3>
                 <div class="row">
-                    <form class="col s12">
+                    <form class="col s12" id="edit-post-form">
                         <div class="row">
                             <div class="input-field col s12">
                                 <textarea id="description-body" class="materialize-textarea"></textarea>
-                                <label for="textarea1">Enter updated text</label>
+                                <label for="textarea1">Enter New Text</label>
                             </div>
                         </div>
                         <div>
@@ -23,4 +23,4 @@
 </div>
 
 <script src="/javascript/edit-post.js"></script>
-<script src="/javascript/delete-post.js"></script>
+<script type="module" src="/javascript/delete-post.js"></script>

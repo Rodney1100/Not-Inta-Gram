@@ -5,10 +5,14 @@ const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
     Post.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: [
             'id',
             'image_url',
             'description',
+            'image_name',
             'created_at',
             // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
@@ -34,11 +38,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
-    Post.findByPk(req.params.id, {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
         attributes: [
             'id',
             'image_url',
             'description',
+            'image_name',
             'created_at',
             // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],
@@ -64,5 +72,5 @@ router.get('/edit/:id', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
-module.exports = router;
 
+module.exports = router;
