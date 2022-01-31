@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
             'id',
             'image_url',
             'description',
+            'image_name',
             'created_at',
             // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
@@ -42,18 +43,6 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
-    res.render('login');
-});
-
-router.get('/signup', (req,res) =>{
-    res.render('signup');
-})
-
 router.get('/post/:id', (req, res) => {
     Post.findOne({
         where: {
@@ -63,6 +52,7 @@ router.get('/post/:id', (req, res) => {
             'id',
             'image_url',
             'description',
+            'image_name',
             'created_at',
             // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
@@ -102,10 +92,26 @@ router.get('/post/:id', (req, res) => {
         });
 });
 
+//renders login handlebar
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
+});
+
+//renders signup handlebar
+router.get('/signup', (req,res) =>{
+    res.render('signup');
+})
+
+//renders new-post handlebar
 router.get('/new', (req, res) => {
     res.render('new-post', {
         loggedIn: req.session.loggedIn
     });
 });
+
 
 module.exports = router;

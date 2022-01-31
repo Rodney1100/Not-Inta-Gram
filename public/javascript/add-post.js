@@ -33,10 +33,10 @@ function newFormHandler(event) {
     const image_file = document.getElementById("image").files[0]
     
 
-    console.log(image_file);
+    // console.log(image_file);
     // console.log(image_file.name);
-
-
+    
+    
     if (image_file.type === "image/jpeg" || image_file.type === "image/png") {
         const storage = getStorage(firebaseApp)
         const storageRef = ref(storage, image_file.name);
@@ -47,17 +47,20 @@ function newFormHandler(event) {
         uploadBytes(storageRef, image_file)
             .then(snapshot => getDownloadURL(snapshot.ref).then(url => {
                 console.log(url);
+                // console.log(name);
                 fetch(`/api/posts`, {
                     method: 'POST',
                     body: JSON.stringify({
                         image_url: url,
-                        description: description
+                        description: description,
+                        image_name: name
                     }),
                     headers: { 'Content-Type': 'application/json' }
                 })
                     .then(res => {
                         console.log(res);
                         newPostForm.reset();
+                        document.location.replace('/');
                     }).catch(err => console.log(err));
             }))
             .catch(console.error);

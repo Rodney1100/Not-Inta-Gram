@@ -1,11 +1,7 @@
-// import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/storage"
-
 const router = require('express').Router();
 const { Post, User, Like, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
-
-
 
 
 // get all users
@@ -16,6 +12,7 @@ router.get('/', (req, res) => {
             'id',
             'image_url',
             'description',
+            'image_name',
             'created_at',
             // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
@@ -51,6 +48,7 @@ router.get('/:id', (req, res) => {
             'id',
             'image_url',
             'description',
+            'image_name',
             'created_at',
             // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
@@ -73,7 +71,7 @@ router.get('/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
-//here
+
 router.post('/', withAuth, (req, res) => {
     Post.create({
         image_url: req.body.image_url,

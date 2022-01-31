@@ -3,10 +3,9 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Post.findAll({
         where: {
-            // use the ID from the session
             user_id: req.session.user_id
         },
         attributes: [
@@ -18,14 +17,6 @@ router.get('/', withAuth, (req, res) => {
             // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
         include: [
-            // {
-            //     model: Comment,
-            //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-            //     include: {
-            //         model: User,
-            //         attributes: ['username']
-            //     }
-            // },
             {
                 model: User,
                 attributes: ['username']
@@ -33,9 +24,12 @@ router.get('/', withAuth, (req, res) => {
         ]
     })
         .then(dbPostData => {
-            // serialize data before passing to template
             const posts = dbPostData.map(post => post.get({ plain: true }));
-            res.render('feed', { posts, loggedIn: true });
+            // pass a single post object into the homepage template
+            res.render('profile', {
+                posts,
+                loggedIn: req.session.loggedIn
+            });
         })
         .catch(err => {
             console.log(err);
@@ -44,24 +38,19 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
-    Post.findByPk(req.params.id, {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
         attributes: [
             'id',
             'image_url',
             'description',
             'image_name',
             'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],
         include: [
-            // {
-            //     model: Comment,
-            //     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-            //     include: {
-            //         model: User,
-            //         attributes: ['username']
-            //     }
-            // },
             {
                 model: User,
                 attributes: ['username']
@@ -84,6 +73,5 @@ router.get('/edit/:id', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
-
 
 module.exports = router;
