@@ -1,48 +1,55 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Not Inta Gram</title>
-    {{!-- Material icons --}}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    {{!-- import materialize --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    {{!-- custom stylesheet --}}
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+    {{! Material icons }}
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    {{! import materialize }}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    {{! custom stylesheet }}
+    {{! <link rel="stylesheet" href="/stylesheets/style.css"> }}
+  </head>
 
-<body>
+  <body>
 
     <div class="container">
-        <header>
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="/"  class="brand-logo">Not Inta Gram</a>
-                    <ul id="nav-mobile"  class="right">
-                        {{#if loggedIn}}
-                        <li>
-                        <a href= "/new" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">add</i></a>
-                        </li>
-                        <li><a href="/">Feed</a></li>
-                        <li><a href="/profile">My Profile</a></li>
-                        <li><a id="logout">logout</a></li>
-                        {{else}}
-                        <li><a href="/login">login</a></li>
-                        {{/if}}
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <main>
-            {{{ body }}}
-        </main>
+      <header>
+        <nav>
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">Not Inta Gram</a>
+            <ul id="nav-mobile" class="right">
+              {{#if loggedIn}}
+                <li>
+                  <a
+                    href="/new"
+                    class="btn-floating btn-large waves-effect waves-light blue"
+                  ><i class="material-icons">add</i></a>
+                </li>
+                <li><a href="/">Feed</a></li>
+                <li><a href="/profile">My Profile</a></li>
+                <li><a id="logout">logout</a></li>
+              {{else}}
+              {{/if}}
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <main>
+        {{{body}}}
+      </main>
     </div>
     {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
+      <script src="/javascript/logout.js"></script>
     {{/if}}
-    
-</body>
+
+  </body>
 
 </html>
