@@ -34,13 +34,14 @@ async function likeClickHandler(event) {
         .then(async res => {
             const postData = await res.json()
             const likeId = postData.likes[0].id;
-            let like_count = postData.likes[0].count
-
-            let new_count = like_count++
-            // console.log(postData);
+            const like_count = postData.likes[0].count
+            
             console.log(like_count);
 
-            await fetch(`/api/like/${likeId}`, {
+            let new_count = like_count + 1
+            // console.log(postData);
+
+            const response = await fetch(`/api/posts/like/${likeId}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     count: new_count
@@ -49,12 +50,13 @@ async function likeClickHandler(event) {
                     'Content-Type': 'application/json'
                 }
             })
-                .then(res => {
-                    console.log(res);
-                    console.log(new_count);
-                    // document.location.reload();
-                    console.log('successfully increased like count');
-                }).catch(err => console.log(err));
+            if (response.ok) {
+                console.log(new_count);
+                // document.location.reload();
+                console.log('successfully increased like count');
+            } else {
+                alert(response.statusText);
+            }
 
         }).catch(err => console.log(err));
 
