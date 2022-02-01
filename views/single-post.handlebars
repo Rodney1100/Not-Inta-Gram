@@ -2,14 +2,14 @@
   <div class="col s12 m6">
     <div class="card">
       <div class="card-image">
-        <img src={{image_url}}>
+        <img src={{post.image_url}}>
       </div>
       <a class="waves-effect waves-light btn" id="like-btn"><i class="material-icons">thumb_up</i></a>
       {{like_count}} {{format_plural "like" like_count}}
       <a class="waves-effect waves-light btn red" id="dislike-btn"><i class="material-icons">thumb_down</i></a>
       <div class="card-content">
-        <span class="card-title">{{user.username}}</span>
-        <p>{{description}}</p>
+        <span class="card-title">{{post.user.username}}</span>
+        <p>{{post.description}}</p>
       </div>
     </div>
   </div>
