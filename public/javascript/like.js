@@ -1,6 +1,3 @@
-// let post = document.getElementById('post-id');
-// const postId = post.innerText;
-
 // var like = document.querySelector('#green');
 // var dislike = document.querySelector('#red');
 
@@ -25,37 +22,43 @@
 
 async function likeClickHandler(event) {
     event.preventDefault();
-    event.stopPropagation();
-    
-    const {id} = event.target
-    
-    console.log(postId);
-    // const post_id = event.target.id
+    // event.stopPropagation();
+    // const {id} = event.target
 
-    // const id = window.location.toString().split('/')[
-    //     window.location.toString().split('/').length - 1
-    // ];
 
-    // const postId = document.getElementById("post-id");
-    // const id = postId.innerText;
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
 
-    console.log(id);
+    fetch(`/api/posts/${id}`)
+        .then(async res => {
+            const postData = await res.json()
+            const likeId = postData.likes[0].id;
+            let like_count = postData.likes[0].count
 
-    // const response = await fetch('/api/posts/like', {
-    //     method: 'PUT',
-    //     body: JSON.stringify({
-    //         post_id: id
-    //     }),
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     }
-    // });
+            let new_count = like_count++
+            // console.log(postData);
+            console.log(like_count);
 
-    // if (response.ok) {
-    //     document.location.reload();
-    // } else {
-    //     alert(response.statusText);
-    // }
+            await fetch(`/api/like/${likeId}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    count: new_count
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(res => {
+                    console.log(res);
+                    console.log(new_count);
+                    // document.location.reload();
+                    console.log('successfully increased like count');
+                }).catch(err => console.log(err));
+
+        }).catch(err => console.log(err));
+
+
 }
 
 document.getElementById('like-btn').addEventListener('click', likeClickHandler);

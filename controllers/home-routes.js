@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const { Post, User, Like, Dislike, Comment } = require('../models');
 
 
 router.get('/', (req, res) => {
@@ -26,6 +26,14 @@ router.get('/', (req, res) => {
             {
                 model: User,
                 attributes: ['username']
+            },
+            {
+                model: Like,
+                attributes: ['id', 'count']
+            },
+            {
+                model: Dislike,
+                attributes: ['id', 'count']
             }
         ]
     })
@@ -68,6 +76,14 @@ router.get('/post/:id', (req, res) => {
             {
                 model: User,
                 attributes: ['username']
+            },
+            {
+                model: Like,
+                attributes: ['id', 'count']
+            },
+            {
+                model: Dislike,
+                attributes: ['id', 'count']
             }
         ]
     })

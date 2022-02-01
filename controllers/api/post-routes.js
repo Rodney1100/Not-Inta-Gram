@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Like, Comment } = require('../../models');
+const { Post, User, Like, Dislike, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
@@ -28,6 +28,14 @@ router.get('/', (req, res) => {
             {
                 model: User,
                 attributes: ['username']
+            },
+            {
+                model: Like,
+                attributes: ['id', 'count']
+            },
+            {
+                model: Dislike,
+                attributes: ['id', 'count']
             }
         ]
     })
@@ -56,6 +64,14 @@ router.get('/:id', (req, res) => {
             {
                 model: User,
                 attributes: ['username']
+            },
+            {
+                model: Like,
+                attributes: ['id', 'count']
+            },
+            {
+                model: Dislike,
+                attributes: ['id', 'count']
             }
         ]
     })
@@ -89,18 +105,29 @@ router.post('/', withAuth, (req, res) => {
         });
 });
 
-// PUT /api/posts/upvote
-router.put('/like', withAuth, (req, res) => {
-    // make sure the session exists first
-    if (req.session) {
-        // pass session id along with all destructured properties on req.body
-        Post.upvote({ ...req.body, user_id: req.session.user_id }, { Like, Comment, User })
-            .then(updatedVoteData => res.json(updatedVoteData))
-            .catch(err => {
-                console.log(err);
-                res.status(500).json(err);
-            });
-    }
+// PUT /api/posts/like
+router.put('/like/:id', withAuth, (req, res) => {
+    Like.update(
+        {
+            count: req.body.count
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+        .then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+            res.json(dbPostData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.put('/:id', withAuth, (req, res) => {
