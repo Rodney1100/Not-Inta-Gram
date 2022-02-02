@@ -11,7 +11,7 @@ img {
   margin-left: 5%;
   margin-top: 5%;
 }
-.edit {
+.edit { /*Edit profile button*/
   position:absolute;
   margin-top: 20%;
   margin-left: 64%;
@@ -21,31 +21,63 @@ img {
   background-color: #4CAF50; /* Green */
   color: white;
 }
-.id{
+.id{ /*Users @username*/
   margin-left:1%;
   margin-bottom: 2%;
   display: block;
   font-size: 14px;
   font-weight: 600;
 }
-.name {
+.name { /*Name Displayed above users @*/
   margin-left:1%;
   margin-bottom: 5%;
   font-size: 22px;
   font-weight: bold
 }
-.text {
+.text { /*Description for Profile*/
   text-align: center;
   font-size: 13px;
   color: #545454;
   font-weight: 500
 }
-.join {
-  font-size: 14px;
-  color: #A0A0A0;
-  font-weight: bold
+.post-list { /*Container of the feed and card*/
+  align-items: center;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+}
+.post-container {/*Post + description blocks*/
+  align-items: center;
+  justify-content: space-around;
+}
+.feeds { /*Feed of images in main content card*/
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  background-color: #5FC9F3;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+body { /*Handle Bars Main body*/
+  background-color: #57A9F1;
+}
+.brand-logo { /* Not Inta Gram Logo*/
+  justify-content: center;
+  left: 2%;
+}
+nav { /* nav bar */
+  height: 80px;
+}
+.nav-wrapper { /* Nav Bar content Containing logo, feed, My Profile, and login/logout */
+  border-style: solid;
+  border-color: black;
+  background-color: #5FC9F3;
 }
 
+/* .hide {
+  
+} */
 /* body{
   margin: 40px;
 }

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Post, Like } = require("../../models");
+const { User, Post, Like, Dislike } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // GET /api/users
@@ -26,6 +26,16 @@ router.get("/:id", (req, res) => {
       {
         model: Post,
         attributes: ["id", "image_url", "description", "image_name", "created_at"],
+        include: [
+          {
+            model: Like,
+            attributes: ['id', 'count']
+          },
+          {
+            model: Dislike,
+            attributes: ['id', 'count']
+          }
+        ]
       },
       // {
       //     model: Comment,
@@ -35,12 +45,12 @@ router.get("/:id", (req, res) => {
       //         attributes: ['title']
       //     }
       // },
-      {
-        model: Post,
-        attributes: ["title"],
-        through: Like,
-        as: "liked_posts",
-      },
+      // {
+      //   model: Post,
+      //   attributes: ["title"],
+      //   through: Like,
+      //   as: "liked_posts",
+      // },
     ],
   })
     .then((dbUserData) => {
