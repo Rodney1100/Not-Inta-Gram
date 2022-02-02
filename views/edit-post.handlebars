@@ -2,13 +2,17 @@
     <div class="col s12 m6">
         <div class="card">
             <div class="card-content">
-                <h3 class="card-title" id="image-name" name="image-name">{{post.image_name}}</h3>
+                <h2>Edit Post</h2>
                 <div class="row">
                     <form class="col s12" id="edit-post-form">
                         <div class="row">
+                            <div class="col">
+                            <h4 id="image-name" name="image-name">{{post.image_name}}</h4>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="description-body" class="materialize-textarea"></textarea>
-                                <label for="textarea1">Enter New Text</label>
+                                <textarea id="description-body" class="materialize-textarea">{{post.description}}</textarea>
                             </div>
                         </div>
                         <div>

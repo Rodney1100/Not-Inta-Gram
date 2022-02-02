@@ -73,6 +73,7 @@ img {
   color: #545454;
   font-weight: 500
 }
+<<<<<<< HEAD
 
 .posts1 {
   margin-top: 7%;
@@ -120,6 +121,46 @@ nav {
 
 
 
+=======
+.post-list { /*Container of the feed and card*/
+  align-items: center;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+}
+.post-container {/*Post + description blocks*/
+  align-items: center;
+  justify-content: space-around;
+}
+.feeds { /*Feed of images in main content card*/
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  background-color: #5FC9F3;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+body { /*Handle Bars Main body*/
+  background-color: #57A9F1;
+}
+.brand-logo { /* Not Inta Gram Logo*/
+  justify-content: center;
+  left: 2%;
+}
+nav { /* nav bar */
+  height: 80px;
+}
+.nav-wrapper { /* Nav Bar content Containing logo, feed, My Profile, and login/logout */
+  border-style: solid;
+  border-color: black;
+  background-color: #5FC9F3;
+}
+
+/* .hide {
+  
+} */
+>>>>>>> aecc1adba1ed95a16e222f74e176ba8ca4125118
 /* body{
   margin: 40px;
 }

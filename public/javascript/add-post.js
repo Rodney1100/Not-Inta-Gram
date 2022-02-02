@@ -25,41 +25,34 @@ function getValue(id) {
 //     const inputEl = document.getElementById('image').files[0]
 // }
 
-function newFormHandler(event) {
+async function newFormHandler(event) {
     event.preventDefault();
     
     const newPostForm = document.getElementById("new-post-form")
     const description = getValue("description-body");
-    const image_file = document.getElementById("image").files[0]
-    
-
-    // console.log(image_file);
-    // console.log(image_file.name);
+    const image_file = await document.getElementById("image").files[0]
     
     
     if (image_file.type === "image/jpeg" || image_file.type === "image/png") {
         const storage = getStorage(firebaseApp)
         const storageRef = ref(storage, image_file.name);
-        const name = image_file.name;
-        const metadata = {
-            contentType: image_file.type
-        };
+
         uploadBytes(storageRef, image_file)
             .then(snapshot => getDownloadURL(snapshot.ref).then(url => {
-                console.log(url);
-                // console.log(name);
+
                 fetch(`/api/posts`, {
                     method: 'POST',
                     body: JSON.stringify({
                         image_url: url,
                         description: description,
-                        image_name: name
+                        image_name: image_file.name
                     }),
                     headers: { 'Content-Type': 'application/json' }
                 })
                     .then(res => {
                         console.log(res);
                         newPostForm.reset();
+                        console.log('successfully added to database');
                         document.location.replace('/');
                     }).catch(err => console.log(err));
             }))

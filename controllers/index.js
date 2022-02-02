@@ -10,7 +10,7 @@ const profileRoutes = require('./profile-routes.js');
 
 
 router.use('/', homeRoutes);
-router.use('/feed', dashboardRoutes);
+// router.use('/feed', dashboardRoutes);
 router.use('/profile', profileRoutes);
 
 
