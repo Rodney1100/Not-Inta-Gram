@@ -1,54 +1,52 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Not Inta Gram</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    {{!-- Material icons --}}
+    {{! Material icons }}
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    {{!-- import materialize css--}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    {{!-- custom stylesheet --}}
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    {{! import materialize }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    {{! custom stylesheet }}
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
-<body>
+<body class="gray">
+    <header>
+        {{#if loggedIn}}
 
-    <div class="container">
-        <header>
-            <nav>
-                <div class="nav-wrapper"> {{!--top-nav--}}
-                    <a href="/"  class="brand-logo brand left">Not Inta Gram</a> {{!--home class=active--}}
-                    <ul id="nav-mobile"  class="nav-buttons right">
-                        {{#if loggedIn}}
-                        <li>
-                        <a href= "/new" class="btn-floating btn-large waves-effect waves-light "><i class="material-icons">add</i></a>
-                        </li>
-                        <li><a href="/">Feed</a></li>
-                        <li><a href="/profile">My Profile</a></li>
-                        <li><a id="logout">logout</a></li>
-                        {{else}}
-                        <li><a href="/login">login</a></li>
-                        {{/if}}
-                       
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <main>
-      
-            {{{ body }}}
         
-        </main>
-    </div>
+        <nav class="nav-wrapper blue">
+            <div>
+                <a href="#" class="brand-logo left">Not Inta Gram</a>
+                <ul class="high-on-med-and-down right">
+                    <li>
+                        <a href="/new">
+                            + post
+                        </a>
+                    </li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/profile">My Profile</a></li>
+                    <li><a id="logout">logout</a></li>
+                    {{else}}
+                    {{/if}}
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {{{body}}}
+    </main>
+
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}
-    {{!-- import materialize javascript--}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <footer>
+        <div class="footer-copyright">
+            <p> © 2022 Group Awesome </p>
+        </div>
+    </footer>
 </body>
 
 </html>
