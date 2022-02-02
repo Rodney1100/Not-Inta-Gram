@@ -1,28 +1,31 @@
-<div class=" mt-4 mb-4 p-3 center">
-    <div id="profileData" class="card p-4">
-        <div class="d-flex flex-column justify-content-left align-items-left">
+<div class="profile-cont center">
+    <div id="profileData" class="profile-card card-small">
+        <div>
             <span class="dot"></span>
         </div>
-        <div class="d-flex flex-column justify-content-center align-items-center">
+        <div>
             <span class="">{{username}} </span>
-            <span class="">{{id}} </span>
         </div>
         <button id="profileEdits">
             Edit Profile
         </button>
 
-        <div class="text mt-3 justify-content-center align-items-center" contenteditable="true" onload="checkEdits()">
+        <div class="text mt-3 " contenteditable="true" onload="checkEdits()">
             {{!-- <span>24 year old web developer student with a passion for gaming, cooking, and learning. </span> --}}
         </div>
     </div>
 </div>
 
-<ul class="post-list center">
-    {{#each posts as |post|}}
-    <li>
-        {{> profile-post-info }}
-    </li>
-    {{/each}}
-</ul>
+<div class="profile-posts card p-4">
+  <div class="feeds">
+    <ul class=" post-list ">
+      {{#each posts as |post|}}
+      <li class="center-align">
+        {{> post-info }}
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
 
 <script src="/javascript/profile.js"></script>

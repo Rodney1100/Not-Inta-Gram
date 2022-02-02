@@ -6,6 +6,51 @@
   box-sizing: border-box;
 }
 
+.main-container {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.profile-posts {
+  margin-top: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 25px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35);
+  border-color: black;
+  border-style: solid;
+}
+.profile-card {
+  margin-top: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 25px;
+  border-color: black;
+  border-style: solid;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35);
+}
+
+.posts1 {
+  margin-top: 10%;
+  margin-left: 14%;
+  margin-right: 14%;
+}
+
+.dot { /* placeholder for profile picture */
+  height: 125px;
+  width: 125px;
+  background-color: rgb(214, 69, 25);
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.brand-logo {
+  margin-left: 4%;
+}
+
+
 .card-title {
   margin-bottom: -50px important!;
 }
@@ -54,16 +99,13 @@ span {
     margin-right: 10%;
   }
 
-  .post-container {
-    /*Post + description blocks*/
-  }
+/* 
   .feeds {
-    /*Feed of images in main content card*/
 
     border-style: solid;
     background-color: #cfffe5;
     margin-top: 10%;
-  }
+  } */
   body {
     /*Handle Bars Main body*/
     background-color: #cedada;
@@ -89,7 +131,7 @@ span {
   }
 
   .discription {
-    background-color: #b6c8a9;
+    background: linear-gradient(to right, rgba(136, 37, 37, 0.637), #bd0e3735);
   }
 
  body{
