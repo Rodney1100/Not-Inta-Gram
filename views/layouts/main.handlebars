@@ -12,41 +12,37 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
-<body class="gray">
-    <header>
-        {{#if loggedIn}}
+<body>
 
-        
-        <nav class="nav-wrapper blue">
-            <div>
-                <a href="#" class="brand-logo left">Not Inta Gram</a>
-                <ul class="high-on-med-and-down right">
-                    <li>
-                        <a href="/new">
-                            + post
-                        </a>
-                    </li>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/profile">My Profile</a></li>
-                    <li><a id="logout">logout</a></li>
-                    {{else}}
-                    {{/if}}
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main>
-        {{{body}}}
-    </main>
-
+    <div class="container">
+        <header class="">
+            <nav class="grey darken-3 nav1">
+                <div>
+                    {{#if loggedIn}}
+                    <a href="/" class="brand-logo left"> Not Inta Gram</a>
+                    <ul id="nav-mobile" class="right">
+                        <li><a href="/new" class="">+ Post</a></li>
+                        <li><a href="/">Feed</a></li>
+                        <li><a href="/profile">My Profile</a></li>
+                        <li><a id="logout">logout</a></li>
+                        {{else}}
+                        {{/if}}
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            {{{body}}}
+        </main>
+    </div>
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}
     <footer>
-        <div class="footer-copyright">
-            <p> © 2022 Group Awesome </p>
-        </div>
+        <p>&copy; Group Awesome</p>
     </footer>
+    {{!-- import materialize javascript--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>

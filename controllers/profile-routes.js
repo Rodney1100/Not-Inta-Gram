@@ -33,16 +33,26 @@ router.get('/', (req, res) => {
     })
         .then(dbPostData => {
             const posts = dbPostData.map(post => post.get({ plain: true }));
-            // pass a single post object into the homepage template
-            res.render('profile', {
-                posts,
-                loggedIn: req.session.loggedIn
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+            User.findOne({
+                    where: {
+                        id: req.session.user_id
+                    },
+                    attributes: ['id', 'username']
+            }).then(dbUserData => {
+                res.render('profile', {
+                    posts,
+                    username: dbUserData.username,
+                    id: dbUserData.id,
+                    loggedIn: req.session.loggedIn
+                });
+            })
+    // pass a single post object into the homepage template
+    
+})
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {

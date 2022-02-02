@@ -1,34 +1,33 @@
-<div class="row">
+<div class="center container">
   <div class="col s12 m6">
     <div class="card">
-      <div class="card-content">
-        <span class="card-title">Create Post</span>
-        <form action="#" id="new-post-form">
-          <div class="file-field input-field">
-            <div class="btn">
-              <span>Upload JPEG/PNG image</span>
-              <input id="image" name="image" type="file" />
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" />
-            </div>
+      <span class="card-title"> <h3> Create Post</h3></span>
+      <form action="#" id="new-post-form">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Upload JPEG/PNG image</span>
+            <input id="image" name="image" type="file" />
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea
-                name="description-body"
-                id="description-body"
-                class="materialize-textarea"
-                data-length="120"
-              ></textarea>
-              <label placeholder="Enter post di" for="textarea2"></label>
-            </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" />
           </div>
-          <div>
-            <button type="submit">Post</button>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <textarea
+              placeholder="Enter Post Discription"
+              name="description-body"
+              id="description-body"
+              class="materialize-textarea"
+              data-length="120"
+            ></textarea>
+            <label for="textarea2"></label>
           </div>
-        </form>
-      </div>
+        </div>
+        <div>
+          <button type="submit">Post</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
