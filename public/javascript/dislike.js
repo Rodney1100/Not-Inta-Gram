@@ -21,6 +21,9 @@ async function dislikeClickHandler(event) {
                 const dislike_count = postData.dislikes[0].count
 
                 // console.log(dislike_count);
+                if (dislike_count === NaN) {
+                    dislike_count = 0;
+                }
 
                 let new_count = dislike_count - 1
                 // console.log(postData);
@@ -57,6 +60,9 @@ async function dislikeClickHandler(event) {
                 const dislike_count = postData.dislikes[0].count
 
                 // console.log(dislike_count);
+                if (dislike_count === NaN) {
+                    dislike_count = 0;
+                }
 
                 let new_count = dislike_count + 1
                 // console.log(postData);
