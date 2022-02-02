@@ -1,60 +1,35 @@
-<div class="container" id="container">
-  <div class="form-container sign-in-container">
-    <form class="login-form">
-      <h4>Sign in</h4>
-      <input
-        type="email"
-        for="email-login"
-        id="email-login"
-        placeholder="Email"
-      />
-      <input
-        type="password"
-        for="password-login"
-        id="password-login"
-        placeholder="Password"
-      />
-      <a href="#">Forgot your password?</a>
-      <button type="submit"><a href="#">Log in</a></button>
-    </form>
-  </div>
-
-  <div class="overlay">
-    <div class="overlay-panel overlay-right">
-      <div class="overlay-container">
+<div class="container1" id="container">
+    <div class="form-container sign-in-container">
+        <form class="login-form">
+            <h4>Log in</h4>
+            <input type="email" for="email-login" id="email-login" placeholder="Email" />
+            <input type="password" for="password-login" id="password-login" placeholder="Password" />
+            <a href="#">Forgot your password?</a>
+            <button class="button1" type="submit">Log in</button>
+        </form>
+    </div>
+    <div class="overlay-container sign-in-container">
         <div class="overlay">
-          <div class="overlay-panel overlay-right">
-            <h4>Join Our Network</h4>
-            <p class="flexIt">
-              With an email, Username and Password! You can start connecting
-              with your friends!!
-            </p>
-            <button class="ghost" id="signUp">
-              <a href="/signup">Sign up</a>
-            </button>
-          </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-right">
+                        <h4>Join Our Network</h4>
+                        <p>
+                            With an email, Username and Password!
+                            You can start connecting
+                            with your friends!!
+                        </p>
+                        <a href="/signup">
+                            <button class="button1" id="signUp">
+                                Sign up
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
-
-{{! <div class="row">
-  <form class="login-form col 12">
-    <div>
-      <label for="email-login">email:</label>
-      <input type="text" id="email-login" />
-    </div>
-    <div>
-      <label for="password-login">password:</label>
-      <input type="password" id="password-login" />
-    </div>
-    <div>
-      <button type="submit">login</button>
-      <p>If you do not have an account, then go to
-        <a class="login-link" href="/signup">Sign up</a></p>
-    </div>
-  </form>
-</div> }}
+</div>
 
 <script src="/javascript/login.js"></script>
