@@ -5,10 +5,10 @@
                 <img src={{image_url}}>
             </div>
             <div class="center-align">
-            <a href="/post/{{id}}" class="waves-effect waves-light green" id="like-btn"><i
+            <a href="/post/{{id}}" class="waves-effect waves-light btn-large green" id="like-btn"><i
                     class="material-icons">thumb_up</i></a>
             {{likes.count}} {{format_plural "like" likes.count}}
-            <a href="/post/{{id}}" class="waves-effect waves-light red" id="dislike-btn"><i
+            <a href="/post/{{id}}" class="waves-effect waves-light btn-large red" id="dislike-btn"><i
                     class="material-icons">thumb_down</i></a>
             {{dislike.count}} {{format_plural "dislike" dislike.count}}
             </div>

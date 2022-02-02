@@ -21,6 +21,18 @@ const likedata = [
     post_id: 5,
     count: 12
   },
+  {
+    post_id: 6,
+    count: 5
+  },
+  {
+    post_id: 7,
+    count: 20
+  },
+  {
+    post_id: 8,
+    count: 15
+  }
 ];
 
 const seedLikes = () => Like.bulkCreate(likedata);

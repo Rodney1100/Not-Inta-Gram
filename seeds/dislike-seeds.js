@@ -21,6 +21,18 @@ const dislikeData = [
     post_id: 5,
     count: 5
   },
+  {
+    post_id: 6,
+    count: 5
+  },
+  {
+    post_id: 7,
+    count: 10
+  },
+  {
+    post_id: 8,
+    count: 5
+  }
 ];
 
 const seedDislikes = () => Dislike.bulkCreate(dislikeData);
