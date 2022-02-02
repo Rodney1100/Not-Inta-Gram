@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-image">
+        <img src={{post.image_url}}>
+      </div>
+      <div class="center-align">
+      <a class="waves-effect waves-light btn-large green" id="like-btn"><i class="material-icons">thumb_up</i></a>
+      {{post.like.count}} {{format_plural "like" post.like.count}}
+      <a class="waves-effect waves-light btn-large red" id="dislike-btn"><i class="material-icons">thumb_down</i></a>
+        {{dislike.count}} {{format_plural "dislike" dislike.count}}
+      </div>
+      <div class="card-content">
+        <span class="card-title">{{post.user.username}}</span>
+        <p>{{post.description}}</p>
+        {{format_date post.created_at}}
+      </div>
+    </div>
+  </div>
+
+  <script src="/javascript/like.js"></script>
+  <script src="/javascript/dislike.js"></script>

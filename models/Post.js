@@ -49,7 +49,7 @@ Post.init(
           },
           image_name: {
             type: DataTypes.TEXT,
-            allowNull: true
+            allowNull: false
           },
         user_id: {
             type: DataTypes.INTEGER,

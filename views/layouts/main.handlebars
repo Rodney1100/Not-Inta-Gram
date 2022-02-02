@@ -1,46 +1,52 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Not Inta Gram</title>
-  {{! Material icons }}
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  {{! import materialize }}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-  {{! custom stylesheet }}
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not Inta Gram</title>
+    {{! Material icons }}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    {{! import materialize }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    {{! custom stylesheet }}
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
-<body>
+<body class="gray">
+    <header>
+        {{#if loggedIn}}
 
-  <div class="container">
-    <header class="">
-      <nav class="grey darken-3 nav1" >
-        <div class="right">
-          {{#if loggedIn}}
-            <a href="/" class="brand-logo left"> Not Inta Gram</a>
-          <ul id="nav-mobile" class="right">
-            <li><a href="/new" class="">+ Post</a></li>
-            <li><a href="/">Feed</a></li>
-            <li><a href="/profile">My Profile</a></li>
-            <li><a id="logout">logout</a></li>
-            {{else}}
-            {{/if}}
-          </ul>
-        </div>
-      </nav>
+        
+        <nav class="nav-wrapper blue">
+            <div>
+                <a href="#" class="brand-logo left">Not Inta Gram</a>
+                <ul class="high-on-med-and-down right">
+                    <li>
+                        <a href="/new">
+                            + post
+                        </a>
+                    </li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/profile">My Profile</a></li>
+                    <li><a id="logout">logout</a></li>
+                    {{else}}
+                    {{/if}}
+                </ul>
+            </div>
+        </nav>
     </header>
     <main>
-      {{{body}}}
+        {{{body}}}
     </main>
-  </div>
-  {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
-  {{/if}}
-  <footer>
-    <p>&copy; Group Awesome</p>
-  </footer>
+
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+    <footer>
+        <div class="footer-copyright">
+            <p> © 2022 Group Awesome </p>
+        </div>
+    </footer>
 </body>
 
 </html>
