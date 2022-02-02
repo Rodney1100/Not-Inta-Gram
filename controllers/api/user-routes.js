@@ -45,12 +45,12 @@ router.get("/:id", (req, res) => {
       //         attributes: ['title']
       //     }
       // },
-      {
-        model: Post,
-        attributes: ["title"],
-        through: Like,
-        as: "liked_posts",
-      },
+      // {
+      //   model: Post,
+      //   attributes: ["title"],
+      //   through: Like,
+      //   as: "liked_posts",
+      // },
     ],
   })
     .then((dbUserData) => {

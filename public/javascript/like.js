@@ -19,7 +19,7 @@ async function likeClickHandler(event) {
                 const likeId = postData.likes[0].id;
                 const like_count = postData.likes[0].count
 
-                console.log(like_count);
+                // console.log(like_count);
 
                 let new_count = like_count - 1
                 // console.log(postData);
@@ -38,8 +38,8 @@ async function likeClickHandler(event) {
                     }
                 })
                 if (response.ok) {
-                    console.log(new_count);
-                    console.log('successfully removed like');
+                    // console.log(new_count);
+                    // console.log('successfully removed like');
                     dislike.classList.toggle('disabled');
                 } else {
                     alert(response.statusText);
@@ -55,7 +55,7 @@ async function likeClickHandler(event) {
                 const likeId = postData.likes[0].id;
                 const like_count = postData.likes[0].count
 
-                console.log(like_count);
+                // console.log(like_count);
 
                 let new_count = like_count + 1
                 // console.log(postData);
@@ -70,8 +70,8 @@ async function likeClickHandler(event) {
                     }
                 })
                 if (response.ok) {
-                    console.log(new_count);
-                    console.log('successfully added like');
+                    // console.log(new_count);
+                    // console.log('successfully added like');
                     M.toast({html: '+1' , classes: 'rounded'})
                     dislike.classList.toggle('disabled');
                 } else {
