@@ -1,11 +1,11 @@
-<div class="container d-flex justify-content-center">
-    <div class="feeds card p-4">
-        <ul class="post-list">
-            {{#each posts as |post|}}
-            <li> 
-                {{> post-info }}
-            </li>
-            {{/each}}
-        </ul>
-    </div>
+<div class="container">
+  <div class="feeds card p-4">
+    <ul class=" post-list ">
+      {{#each posts as |post|}}
+      <li class=" center-align">
+        {{> post-info }}
+      </li>
+      {{/each}}
+    </ul>
+  </div>
 </div>

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Not Inta Gram</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     {{!-- Material icons --}}
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     {{!-- import materialize --}}
@@ -18,12 +20,12 @@
     <div class="container">
         <header>
             <nav>
-                <div class="nav-wrapper">
-                    <a href="/"  class="brand-logo">Not Inta Gram</a>
-                    <ul id="nav-mobile"  class="right">
+                <div class="nav-wrapper"> {{!--top-nav--}}
+                    <a href="/"  class="brand-logo brand left">Not Inta Gram</a> {{!--home class=active--}}
+                    <ul id="nav-mobile"  class="nav-buttons right">
                         {{#if loggedIn}}
                         <li>
-                        <a href= "/new" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">add</i></a>
+                        <a href= "/new" class="btn-floating btn-large waves-effect waves-light "><i class="material-icons">add</i></a>
                         </li>
                         <li><a href="/">Feed</a></li>
                         <li><a href="/profile">My Profile</a></li>
@@ -31,12 +33,15 @@
                         {{else}}
                         <li><a href="/login">login</a></li>
                         {{/if}}
+                       
                     </ul>
                 </div>
             </nav>
         </header>
         <main>
+      
             {{{ body }}}
+        
         </main>
     </div>
     {{#if loggedIn}}

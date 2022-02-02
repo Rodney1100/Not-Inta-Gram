@@ -1,17 +1,50 @@
 img {
   height: 500px;
-  width: 500%;
+  width: 1000px;
 }
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .nav-wrapper a:not(:first-child) {display: none;}
+  .nav-wrapper a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .nav-wrapper.responsive {position: relative;}
+  .nav-wrapper.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .nav-wrapper.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+.profile-card {
+  margin-top: 40px;
+  border-radius: 25px;
+  border-color: black;
+  border-style: solid;
+  background-color: #CFFFE5;
+}
+
 .dot { /* placeholder for profile picture */
   height: 125px;
   width: 125px;
-  background-color: rgb(19, 175, 202);
+  background-color: rgb(214, 69, 25);
   border-radius: 50%;
   display: inline-block;
   margin-left: 5%;
   margin-top: 5%;
 }
-.edit {
+.edit { /*Edit profile button*/
   position:absolute;
   margin-top: 20%;
   margin-left: 64%;
@@ -21,30 +54,71 @@ img {
   background-color: #4CAF50; /* Green */
   color: white;
 }
-.id{
+.id{ /*Users @username*/
   margin-left:1%;
   margin-bottom: 2%;
   display: block;
   font-size: 14px;
   font-weight: 600;
 }
-.name {
+.name { /*Name Displayed above users @*/
   margin-left:1%;
   margin-bottom: 5%;
   font-size: 22px;
   font-weight: bold
 }
-.text {
+.text { /*Description for Profile*/
   text-align: center;
   font-size: 13px;
   color: #545454;
   font-weight: 500
 }
-.join {
-  font-size: 14px;
-  color: #A0A0A0;
-  font-weight: bold
+
+.posts1 {
+  margin-top: 7%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
+.post-container {/*Post + description blocks*/
+  
+}
+.feeds { /*Feed of images in main content card*/
+
+  border-style: solid;
+  background-color: #CFFFE5;
+  margin-top: 10%;
+
+}
+body { /*Handle Bars Main body*/
+  background-color: #CEDADA;
+  
+}
+
+nav {
+  height: 80px;
+
+}
+
+.nav-wrapper {
+  border-style: solid;
+  border-color: black;
+  margin-top: 20px;
+  padding-left: 5%;
+  
+  background-color: #B6C8A9;
+}
+
+.about-me {
+  margin-bottom: 10px;
+  color: black;
+  font-size: 16px;
+}
+
+.discription {
+  background-color: #B6C8A9;
+}
+
+
 
 /* body{
   margin: 40px;
