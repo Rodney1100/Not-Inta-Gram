@@ -1,4 +1,5 @@
 var like = document.getElementById('like-btn');
+const likeCount = document.getElementById('like-count');
 var dislike = document.getElementById('dislike-btn');
 
 async function likeClickHandler(event) {
@@ -38,7 +39,7 @@ async function likeClickHandler(event) {
                     }
                 })
                 if (response.ok) {
-                    // console.log(new_count);
+                    likeCount.innerHTML = new_count;
                     // console.log('successfully removed like');
                     dislike.classList.toggle('disabled');
                 } else {
@@ -70,9 +71,9 @@ async function likeClickHandler(event) {
                     }
                 })
                 if (response.ok) {
-                    // console.log(new_count);
+                    likeCount.innerHTML = new_count;
                     // console.log('successfully added like');
-                    M.toast({html: '+1' , classes: 'rounded'})
+                    M.toast({ html: '+1', classes: 'rounded' })
                     dislike.classList.toggle('disabled');
                 } else {
                     alert(response.statusText);
