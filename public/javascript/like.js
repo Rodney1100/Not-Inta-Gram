@@ -21,6 +21,9 @@ async function likeClickHandler(event) {
                 const like_count = postData.likes[0].count
 
                 // console.log(like_count);
+                if (like_count === undefined) {
+                    like_count = 0;
+                }
 
                 let new_count = like_count - 1
                 // console.log(postData);
@@ -57,6 +60,9 @@ async function likeClickHandler(event) {
                 const like_count = postData.likes[0].count
 
                 // console.log(like_count);
+                if (like_count === undefined) {
+                    like_count = 0;
+                }
 
                 let new_count = like_count + 1
                 // console.log(postData);
