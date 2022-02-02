@@ -6,6 +6,16 @@
   box-sizing: border-box;
 }
 
+.single-post {
+  background: linear-gradient(to right, rgba(136, 37, 37, 0.637), #bd0e3735);
+}
+
+.single-post1 {
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 #new-post-form {
   height: 100%;
   padding-bottom: 2%;
@@ -200,7 +210,7 @@ input {
 .container1 {
   background-color: #fff;
   border-radius: 10px;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35);
+  /* background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35); */
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
