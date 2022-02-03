@@ -6,17 +6,14 @@
         <div class="row">
           <form class="col s12" id="edit-post-form">
             <div class="row">
-              <div class="col">
-                <h4 id="image-name" name="image-name">{{post.image_name}}</h4>
-                <h4 id="image-name" name="image-name">{{post.id}}</h4>
+              <div class="card-image">
+                <img src={{post.image_url}}>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <textarea
-                  id="description-body"
-                  class="materialize-textarea"
-                >{{post.description}}</textarea>
+                <span class="card-title">{{post.user.username}}</span>
+                <textarea id="description-body" class="materialize-textarea">{{post.description}}</textarea>
               </div>
             </div>
             <div>

@@ -11,8 +11,7 @@ router.get('/', (req, res) => {
             'image_url',
             'description',
             'image_name',
-            'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            'created_at'
         ],
         include: [
             // {
@@ -39,7 +38,6 @@ router.get('/', (req, res) => {
     })
         .then(dbPostData => {
             const posts = dbPostData.map(post => post.get({ plain: true }));
-            // pass a single post object into the homepage template
             res.render('feed', {
                 posts,
                 loggedIn: req.session.loggedIn
@@ -62,7 +60,6 @@ router.get('/post/:id', (req, res) => {
             'description',
             'image_name',
             'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
         include: [
             // {

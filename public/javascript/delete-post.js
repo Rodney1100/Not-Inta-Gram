@@ -16,21 +16,6 @@ const storage = getStorage(firebaseApp);
 
 async function deleteFormHandler(event) {
     event.preventDefault();
-    
-    const storage = getStorage();
-    // const imageRef =ref(storage, 'image/' + );
-
-    deleteObject(imageRef).then(()=> {
-        
-    })
-    .catch((err) => {
-        console.log(err);
-    })
-
-    const imageText = document.getElementById("image-name");
-    const imageName = imageText.innerText;
-
-    console.log(imageName);
 
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1

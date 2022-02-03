@@ -13,8 +13,7 @@ router.get('/', (req, res) => {
             'image_url',
             'description',
             'image_name',
-            'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            'created_at'
         ],
         include: [
             {
@@ -46,8 +45,6 @@ router.get('/', (req, res) => {
                     loggedIn: req.session.loggedIn
                 });
             })
-    // pass a single post object into the homepage template
-    
 })
     .catch(err => {
         console.log(err);
@@ -65,8 +62,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
             'image_url',
             'description',
             'image_name',
-            'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            'created_at'
         ],
         include: [
             {

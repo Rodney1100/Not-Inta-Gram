@@ -44,13 +44,7 @@ router.get("/:id", (req, res) => {
       //         model: Post,
       //         attributes: ['title']
       //     }
-      // },
-      // {
-      //   model: Post,
-      //   attributes: ["title"],
-      //   through: Like,
-      //   as: "liked_posts",
-      // },
+      // }
     ],
   })
     .then((dbUserData) => {

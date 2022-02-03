@@ -97,6 +97,14 @@ router.post('/', withAuth, (req, res) => {
     })
         .then(dbPostData => {
             res.json(dbPostData)
+            Like.create({
+                post_id: dbPostData.id,
+                count: 0
+            })
+            Dislike.create({
+                post_id: dbPostData.id,
+                count: 0
+            })
             res.render('feed');
         })
         .catch(err => {
