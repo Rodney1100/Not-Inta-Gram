@@ -1,31 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Post extends Model {
-    static upvote(body, models) {
-        return models.Like.create({
-            user_id: body.user_id,
-            post_id: body.post_id
-        }).then(() => {
-            return Post.findOne({
-                where: {
-                    id: body.post_id
-                },
-                attributes: [
-                    'id',
-                    'image_url',
-                    'description',
-                    'image_name',
-                    'created_at',
-                    [
-                        sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'),
-                        'like_count'
-                    ]
-                ]
-            });
-        });
-    }
-}
+class Post extends Model {}
 
 // create fields/columns for Post model
 Post.init(
@@ -51,6 +27,16 @@ Post.init(
             type: DataTypes.TEXT,
             allowNull: false
           },
+          like_count: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0
+        },
+          dislike_count: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

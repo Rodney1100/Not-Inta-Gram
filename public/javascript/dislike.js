@@ -17,13 +17,7 @@ async function dislikeClickHandler(event) {
         fetch(`/api/posts/${id}`)
             .then(async res => {
                 const postData = await res.json()
-                const dislikeId = postData.dislikes[0].id;
-                const dislike_count = postData.dislikes[0].count
-
-                // console.log(dislike_count);
-                if (dislike_count === undefined) {
-                    dislike_count = 0;
-                }
+                const dislike_count = postData.dislike_count
 
                 let new_count = dislike_count - 1
                 // console.log(postData);
@@ -32,10 +26,10 @@ async function dislikeClickHandler(event) {
                     new_count = 0;
                 }
 
-                const response = await fetch(`/api/posts/dislike/${dislikeId}`, {
+                const response = await fetch(`/api/posts/${id}`, {
                     method: 'PUT',
                     body: JSON.stringify({
-                        count: new_count
+                        dislike_count: new_count
                     }),
                     headers: {
                         'Content-Type': 'application/json'
@@ -56,21 +50,15 @@ async function dislikeClickHandler(event) {
         fetch(`/api/posts/${id}`)
             .then(async res => {
                 const postData = await res.json()
-                const dislikeId = postData.dislikes[0].id;
-                const dislike_count = postData.dislikes[0].count
-
-                // console.log(dislike_count);
-                if (dislike_count === undefined) {
-                    dislike_count = 0;
-                }
+                const dislike_count = postData.dislike_count
 
                 let new_count = dislike_count + 1
                 // console.log(postData);
 
-                const response = await fetch(`/api/posts/dislike/${dislikeId}`, {
+                const response = await fetch(`/api/posts/${id}`, {
                     method: 'PUT',
                     body: JSON.stringify({
-                        count: new_count
+                        dislike_count: new_count
                     }),
                     headers: {
                         'Content-Type': 'application/json'

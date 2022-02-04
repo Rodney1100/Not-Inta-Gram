@@ -6,6 +6,7 @@ const withAuth = require('../utils/auth');
 // GET /profile
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
+        order: [['created_at', 'ASC']],
         where: {
             user_id: req.session.user_id
         },
@@ -14,20 +15,14 @@ router.get('/', withAuth, (req, res) => {
             'image_url',
             'description',
             'image_name',
+            'like_count',
+            'dislike_count',
             'created_at'
         ],
         include: [
             {
                 model: User,
                 attributes: ['username']
-            },
-            {
-                model: Like,
-                attributes: ['id', 'count']
-            },
-            {
-                model: Dislike,
-                attributes: ['id', 'count']
             }
         ]
     })
@@ -64,20 +59,14 @@ router.get('/edit/:id', withAuth, (req, res) => {
             'image_url',
             'description',
             'image_name',
+            'like_count',
+            'dislike_count',
             'created_at'
         ],
         include: [
             {
                 model: User,
                 attributes: ['username']
-            },
-            {
-                model: Like,
-                attributes: ['id', 'count']
-            },
-            {
-                model: Dislike,
-                attributes: ['id', 'count']
             }
         ]
     })

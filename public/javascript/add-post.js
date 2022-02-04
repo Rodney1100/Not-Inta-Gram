@@ -41,7 +41,9 @@ async function newFormHandler(event) {
                     body: JSON.stringify({
                         image_url: url,
                         description: description,
-                        image_name: image_file.name
+                        image_name: image_file.name,
+                        like_count: 0,
+                        dislike_count: 0
                     }),
                     headers: { 'Content-Type': 'application/json' }
                 })

@@ -24,17 +24,17 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ["id", "image_url", "description", "image_name", "created_at"],
-        include: [
-          {
-            model: Like,
-            attributes: ['id', 'count']
-          },
-          {
-            model: Dislike,
-            attributes: ['id', 'count']
-          }
-        ]
+        attributes: ["id", "image_url", "description", "image_name", "like_count", "dislike_count", "created_at"],
+        // include: [
+        //   {
+        //     model: Like,
+        //     attributes: ['id', 'count']
+        //   },
+        //   {
+        //     model: Dislike,
+        //     attributes: ['id', 'count']
+        //   }
+        // ]
       },
       // {
       //     model: Comment,

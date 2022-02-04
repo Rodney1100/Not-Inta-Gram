@@ -6,12 +6,14 @@ const withAuth = require('../../utils/auth');
 //GET /api/users
 router.get('/', (req, res) => {
     Post.findAll({
-        order: [['created_at', 'DESC']],
+        order: [['created_at', 'ASC']],
         attributes: [
             'id',
             'image_url',
             'description',
             'image_name',
+            'like_count',
+            'dislike_count',
             'created_at'
         ],
         include: [
@@ -26,14 +28,6 @@ router.get('/', (req, res) => {
             {
                 model: User,
                 attributes: ['username']
-            },
-            {
-                model: Like,
-                attributes: ['id', 'count']
-            },
-            {
-                model: Dislike,
-                attributes: ['id', 'count']
             }
         ]
     })
@@ -56,20 +50,14 @@ router.get('/:id', (req, res) => {
             'image_url',
             'description',
             'image_name',
+            'like_count',
+            'dislike_count',
             'created_at'
         ],
         include: [
             {
                 model: User,
                 attributes: ['username']
-            },
-            {
-                model: Like,
-                attributes: ['id', 'count']
-            },
-            {
-                model: Dislike,
-                attributes: ['id', 'count']
             }
         ]
     })
@@ -92,20 +80,12 @@ router.post('/', withAuth, (req, res) => {
         image_url: req.body.image_url,
         description: req.body.description,
         image_name: req.body.image_name,
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
+        like_count: req.body.like_count,
+        dislike_count: req.body.dislike_count
     })
         .then(dbPostData => {
             res.json(dbPostData)
-            Like.create({
-                post_id: dbPostData.id,
-                count: 0
-            }) 
-            .then(()=> {
-                Dislike.create({
-                    post_id: dbPostData.id,
-                    count: 0
-                })
-            })
             res.render('feed');
         })
         .catch(err => {
@@ -170,7 +150,9 @@ router.put('/dislike/:id', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
-            description: req.body.description
+            description: req.body.description,
+            like_count: req.body.like_count,
+            dislike_count: req.body.dislike_count
         },
         {
             where: {

@@ -29,33 +29,33 @@ Post.belongsTo(User, {
 //     foreignKey: 'user_id'
 // });
 
-Like.belongsTo(Post, {
-    foreignKey: 'post_id'
-});
+// Like.belongsTo(Post, {
+//     foreignKey: 'post_id'
+// });
 
 // User.hasMany(Like, {
 //     foreignKey: 'user_id'
 // });
 
-Post.hasMany(Like, {
-    foreignKey: 'post_id'
-});
+// Post.hasMany(Like, {
+//     foreignKey: 'post_id'
+// });
 
 // Dislike.belongsTo(User, {
 //     foreignKey: 'user_id'
 // });
 
-Dislike.belongsTo(Post, {
-    foreignKey: 'post_id'
-});
+// Dislike.belongsTo(Post, {
+//     foreignKey: 'post_id'
+// });
 
 // User.hasMany(Dislike, {
 //     foreignKey: 'user_id'
 // });
 
-Post.hasMany(Dislike, {
-    foreignKey: 'post_id'
-});
+// Post.hasMany(Dislike, {
+//     foreignKey: 'post_id'
+// });
 
 Comment.belongsTo(User, {
     foreignKey: 'user_id'

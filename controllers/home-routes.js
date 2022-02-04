@@ -7,11 +7,14 @@ const withAuth = require('../utils/auth');
 // GET /
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
+        order: [['created_at', 'ASC']],
         attributes: [
             'id',
             'image_url',
             'description',
             'image_name',
+            'like_count',
+            'dislike_count',
             'created_at'
         ],
         include: [
@@ -26,14 +29,6 @@ router.get('/', withAuth, (req, res) => {
             {
                 model: User,
                 attributes: ['username']
-            },
-            {
-                model: Like,
-                attributes: ['id', 'count']
-            },
-            {
-                model: Dislike,
-                attributes: ['id', 'count']
             }
         ]
     })
@@ -61,7 +56,9 @@ router.get('/post/:id', withAuth, (req, res) => {
             'image_url',
             'description',
             'image_name',
-            'created_at',
+            'like_count',
+            'dislike_count',
+            'created_at'
         ],
         include: [
             // {
@@ -75,14 +72,6 @@ router.get('/post/:id', withAuth, (req, res) => {
             {
                 model: User,
                 attributes: ['username']
-            },
-            {
-                model: Like,
-                attributes: ['id', 'count']
-            },
-            {
-                model: Dislike,
-                attributes: ['id', 'count']
             }
         ]
     })

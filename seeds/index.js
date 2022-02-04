@@ -18,10 +18,10 @@ const seedAll = async () => {
   // await seedComments();
   console.log('--------------');
 
-  await seedLikes();
+  // await seedLikes();
   console.log('--------------');
 
-  await seedDislikes();
+  // await seedDislikes();
   console.log('--------------');
 
   process.exit(0);

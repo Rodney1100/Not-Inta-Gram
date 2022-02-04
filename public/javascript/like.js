@@ -17,13 +17,7 @@ async function likeClickHandler(event) {
         fetch(`/api/posts/${id}`)
             .then(async res => {
                 const postData = await res.json()
-                const likeId = postData.likes[0].id;
-                const like_count = postData.likes[0].count
-
-                // console.log(like_count);
-                if (like_count === undefined) {
-                    like_count = 0;
-                }
+                const like_count = postData.like_count
 
                 let new_count = like_count - 1
                 // console.log(postData);
@@ -32,10 +26,10 @@ async function likeClickHandler(event) {
                     new_count = 0;
                 }
 
-                const response = await fetch(`/api/posts/like/${likeId}`, {
+                const response = await fetch(`/api/posts/${id}`, {
                     method: 'PUT',
                     body: JSON.stringify({
-                        count: new_count
+                        like_count: new_count
                     }),
                     headers: {
                         'Content-Type': 'application/json'
@@ -56,21 +50,15 @@ async function likeClickHandler(event) {
         fetch(`/api/posts/${id}`)
             .then(async res => {
                 const postData = await res.json()
-                const likeId = postData.likes[0].id;
-                const like_count = postData.likes[0].count
-
-                // console.log(like_count);
-                if (like_count === undefined) {
-                    like_count = 0;
-                }
+                const like_count = postData.like_count
 
                 let new_count = like_count + 1
                 // console.log(postData);
 
-                const response = await fetch(`/api/posts/like/${likeId}`, {
+                const response = await fetch(`/api/posts/${id}`, {
                     method: 'PUT',
                     body: JSON.stringify({
-                        count: new_count
+                        like_count: new_count
                     }),
                     headers: {
                         'Content-Type': 'application/json'
