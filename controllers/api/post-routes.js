@@ -4,7 +4,7 @@ const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 
-// get all users
+//GET /api/users
 router.get('/', (req, res) => {
     Post.findAll({
         order: [['created_at', 'DESC']],
@@ -13,8 +13,7 @@ router.get('/', (req, res) => {
             'image_url',
             'description',
             'image_name',
-            'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            'created_at'
         ],
         include: [
             // {
@@ -47,6 +46,7 @@ router.get('/', (req, res) => {
 
 });
 
+//GET /api/users/1
 router.get('/:id', (req, res) => {
     Post.findOne({
         where: {
@@ -57,8 +57,7 @@ router.get('/:id', (req, res) => {
             'image_url',
             'description',
             'image_name',
-            'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            'created_at'
         ],
         include: [
             {
@@ -88,6 +87,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
+//POST /api/posts
 router.post('/', withAuth, (req, res) => {
     Post.create({
         image_url: req.body.image_url,
@@ -113,7 +113,7 @@ router.post('/', withAuth, (req, res) => {
         });
 });
 
-// PUT /api/posts/like
+// PUT /api/posts/like/1
 router.put('/like/:id', withAuth, (req, res) => {
     Like.update(
         {
@@ -138,7 +138,7 @@ router.put('/like/:id', withAuth, (req, res) => {
         });
 });
 
-// PUT /api/posts/dislike
+// PUT /api/posts/dislike/1
 router.put('/dislike/:id', withAuth, (req, res) => {
     Dislike.update(
         {
@@ -163,6 +163,7 @@ router.put('/dislike/:id', withAuth, (req, res) => {
         });
 });
 
+//PUT /api/posts/1
 router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
@@ -187,6 +188,7 @@ router.put('/:id', withAuth, (req, res) => {
         });
 });
 
+// DELETE /api/posts/1
 router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
@@ -205,4 +207,5 @@ router.delete('/:id', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
+
 module.exports = router;

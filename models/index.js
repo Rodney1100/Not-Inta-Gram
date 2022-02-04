@@ -5,7 +5,7 @@ const Dislike = require('./Dislike');
 const Comment = require('./Comment');
 
 
-//create associations
+// Associations
 User.hasMany(Post, {
     foreignKey: 'user_id'
 });

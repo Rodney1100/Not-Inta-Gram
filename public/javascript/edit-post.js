@@ -28,6 +28,4 @@ async function editFormHandler(event) {
   }
 }
 
-document
-  .getElementById("edit-post-form")
-  .addEventListener("submit", editFormHandler);
+document.getElementById("edit-post-form").addEventListener("submit", editFormHandler);

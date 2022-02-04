@@ -1,4 +1,3 @@
-//code needed to delete image from cloud as well. will implement at a later date
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js";
 import { getStorage, ref, deleteObject } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-storage.js";
 

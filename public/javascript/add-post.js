@@ -21,50 +21,42 @@ function getValue(id) {
   return document.getElementById(id).value;
 }
 
-// function getFileName(url) {
-//     return url.split("\\").splice(-1)[0];
-// }
-
-// function getFile(e) {
-//     const inputEl = document.getElementById('image').files[0]
-// }
-
 
 async function newFormHandler(event) {
-    event.preventDefault();
-    
-    const newPostForm = document.getElementById("new-post-form")
-    const description = getValue("description-body");
-    const image_file = await document.getElementById("image").files[0]
-    
-    
-    if (image_file.type === "image/jpeg" || image_file.type === "image/png") {
-        const storage = getStorage(firebaseApp)
-        const storageRef = ref(storage, image_file.name);
+  event.preventDefault();
 
-        uploadBytes(storageRef, image_file)
-            .then(snapshot => getDownloadURL(snapshot.ref).then(url => {
+  const newPostForm = document.getElementById("new-post-form")
+  const description = getValue("description-body");
+  const image_file = await document.getElementById("image").files[0]
 
-                fetch(`/api/posts`, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        image_url: url,
-                        description: description,
-                        image_name: image_file.name
-                    }),
-                    headers: { 'Content-Type': 'application/json' }
-                })
-                    .then(res => {
-                        console.log(res);
-                        newPostForm.reset();
-                        console.log('successfully added to database');
-                        document.location.replace('/');
-                    }).catch(err => console.log(err));
-            }))
-            .catch(console.error);
-    } else {
-        alert("please upload JPEG or PNG files");
-    }
+
+  if (image_file.type === "image/jpeg" || image_file.type === "image/png") {
+    const storage = getStorage(firebaseApp)
+    const storageRef = ref(storage, image_file.name);
+
+    uploadBytes(storageRef, image_file)
+      .then(snapshot => getDownloadURL(snapshot.ref).then(url => {
+
+        fetch(`/api/posts`, {
+          method: 'POST',
+          body: JSON.stringify({
+            image_url: url,
+            description: description,
+            image_name: image_file.name
+          }),
+          headers: { 'Content-Type': 'application/json' }
+        })
+          .then(res => {
+            console.log(res);
+            newPostForm.reset();
+            console.log('successfully added to database');
+            document.location.replace('/');
+          }).catch(err => console.log(err));
+      }))
+      .catch(console.error);
+  } else {
+    alert("please upload JPEG or PNG files");
+  }
 
   // console.log(image_file);
   // console.log(image_file.name);
@@ -79,7 +71,7 @@ async function newFormHandler(event) {
     uploadBytes(storageRef, image_file)
       .then((snapshot) =>
         getDownloadURL(snapshot.ref).then((url) => {
-          console.log(url);
+          // console.log(url);
           // console.log(name);
           fetch(`/api/posts`, {
             method: "POST",
@@ -91,7 +83,7 @@ async function newFormHandler(event) {
             headers: { "Content-Type": "application/json" },
           })
             .then((res) => {
-              console.log(res);
+              // console.log(res);
               newPostForm.reset();
               document.location.replace("/");
             })
@@ -104,6 +96,4 @@ async function newFormHandler(event) {
   }
 }
 
-document
-  .getElementById("new-post-form")
-  .addEventListener("submit", newFormHandler);
+document.getElementById("new-post-form").addEventListener("submit", newFormHandler);

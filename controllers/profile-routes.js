@@ -3,7 +3,8 @@ const sequelize = require('../config/connection');
 const { Post, User, Like, Dislike, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
+// GET /profile
+router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
             user_id: req.session.user_id
@@ -52,6 +53,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// GET /profile/edit/1
 router.get('/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
