@@ -34,7 +34,6 @@ app.use(function (req, res, next) {
 });
 
 app.use(session(sess));
-
 app.use(express.json());
 app.use(fileupload({ useTempFiles: true }));
 app.use(express.urlencoded({ extended: true }));

@@ -15,7 +15,6 @@ async function editFormHandler(event) {
     body: JSON.stringify({
       post_id: id,
       description: description,
-      // image: id,
     }),
     headers: {
       "Content-Type": "application/json",

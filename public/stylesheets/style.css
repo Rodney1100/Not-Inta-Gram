@@ -5,37 +5,29 @@
 * {
   box-sizing: border-box;
 }
-
 .single-post {
-  background: linear-gradient(to right, rgba(136, 37, 37, 0.637), #bd0e3735);
+  /* background: linear-gradient(to right, rgba(248, 180, 180, 0.637), #bd0e3735); */
 }
-
 .single-post1 {
   margin-top: 5%;
   margin-left: 10%;
   margin-right: 10%;
 }
-
 #new-post-form {
   height: 100%;
   padding-bottom: 2%;
 }
 .full-create-card {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35);
-
+  /* background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #41f2ff35); */
 }
-
 .create-post {
   height: 100%;
 }
-
 .main-container {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35);
+  /* background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35); */
   margin-left: 2%;
   margin-right: 2%;
-  
 }
-
 .profile-posts {
   padding-top: 2%;
   padding-bottom: 3%;
@@ -43,25 +35,23 @@
   margin-left: 2%;
   margin-right: 2%;
   border-radius: 25px;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35);
- 
+  /* background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35); */
 }
 .profile-card {
   margin-top: 5%;
   margin-left: 2%;
   margin-right: 2%;
   border-radius: 25px;
- 
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35);
-}
 
+  /* background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35); */
+}
 .posts1 {
-  margin-top: 10%;
+  margin-top: 5%;
   margin-left: 14%;
   margin-right: 14%;
 }
-
-.dot { /* placeholder for profile picture */
+.dot {
+  /* placeholder for profile picture */
   height: 125px;
   width: 125px;
   background-color: rgb(214, 69, 25);
@@ -70,18 +60,11 @@
   margin-top: 5%;
   margin-bottom: 5%;
 }
-
 .brand-logo {
   margin-left: 4%;
 }
-
-
-.card-title {
-  margin-bottom: -50px important!;
-}
-
 body {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35);
+  /* background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +72,6 @@ body {
   font-family: "Montserrat", sans-serif;
   margin: 20px 0 50px;
 }
-
 h1 {
   font-weight: bold;
   margin: 0;
@@ -106,7 +88,6 @@ li {
 h2 {
   text-align: center;
 }
-
 p {
   font-size: 14px;
   font-weight: 100;
@@ -114,62 +95,45 @@ p {
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
 }
-
 span {
   font-size: 12px;
 }
-  .posts {
-    margin-top: 7%;
-    margin-left: 10%;
-    margin-right: 10%;
-  }
+.posts {
+  margin-top: 7%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+body {
+  /*Handle Bars Main body*/
+  background-color: #cedada;
+}
+nav {
+  height: 80px;
+}
+.nav-wrapper {
+  border-style: solid;
+  border-color: black;
+  margin-top: 20px;
+  padding-left: 5%;
 
-/* 
-  .feeds {
-
-    border-style: solid;
-    background-color: #cfffe5;
-    margin-top: 10%;
-  } */
-  body {
-    /*Handle Bars Main body*/
-    background-color: #cedada;
-  }
-
-  nav {
-    height: 80px;
-  }
-
-  .nav-wrapper {
-    border-style: solid;
-    border-color: black;
-    margin-top: 20px;
-    padding-left: 5%;
-
-    background-color: #b6c8a9;
-  }
-
-  .about-me {
-    margin-bottom: 10px;
-    color: black;
-    font-size: 16px;
-  }
-
-  .discription {
-    background: linear-gradient(to right, rgba(136, 37, 37, 0.637), #bd0e3735);
-  }
-
- body{
+  background-color: #b6c8a9;
+}
+.about-me {
+  margin-bottom: 10px;
+  color: black;
+  font-size: 16px;
+}
+.discription {
+}
+body {
   margin: 40px;
 }
-
 a {
   color: #333;
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
 }
-
 button {
   border-radius: 20px;
   border: 1px solid purple;
@@ -182,15 +146,12 @@ button {
   transition: transform 80ms ease-in;
   margin-top: 15px;
 }
-
 button:active {
   transform: scale(0.95);
 }
-
 button:focus {
   outline: none;
 }
-
 form {
   background-color: #ffffff;
   margin-top: 10%;
@@ -198,7 +159,6 @@ form {
   height: 100%;
   text-align: center;
 }
-
 input {
   background-color: rgb(240, 209, 209);
   border: none;
@@ -206,11 +166,9 @@ input {
   margin: 8px 0;
   width: 100%;
 }
-
 .container1 {
   background-color: #fff;
   border-radius: 10px;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.33), #ff416d35); 
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
@@ -229,35 +187,31 @@ input {
   min-height: 480px;
 }
 .container {
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-radius: 20px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.501), 0 10px 10px rgba(5, 3, 3, 0.501);
   position: relative;
   overflow: hidden;
   width: 768px;
   max-width: 100%;
   min-height: 500px;
 }
-
 .form-container {
   position: absolute;
   top: 0;
   height: 100%;
 }
-
 .sign-in-container {
   top: 0;
   left: 0;
   width: 50%;
   z-index: 100;
 }
-
 .sign-up-container {
   left: 0;
   width: 50%;
   opacity: 100;
   z-index: 999999;
 }
-
 .overlay-container {
   position: absolute;
   top: 0;
@@ -268,14 +222,11 @@ input {
   transition: transform 0.6s ease-in-out;
   z-index: 100;
 }
-
 .container.right-panel-active .overlay-container {
   transform: translateX(-100%);
 }
-
 .overlay {
   background: #ff416c;
-  /* background: -webkit-linear-gradient(to right, #ff416c, blue); */
   background: linear-gradient(to right, blue, #ff416c);
   background-repeat: no-repeat;
   background-size: cover;
@@ -287,7 +238,6 @@ input {
   width: 200%;
   transform: translateX(0);
 }
-
 .overlay-panel {
   position: absolute;
   display: flex;
@@ -302,20 +252,16 @@ input {
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
 }
-
 .overlay-left {
   transform: translateX(-20%);
 }
-
 .container.right-panel-active .overlay-left {
   transform: translateX(0);
 }
-
 .overlay-right {
   right: 0%;
   transform: translateX(0);
 }
-
 footer {
   background-color: #222;
   color: #fff;
@@ -327,7 +273,6 @@ footer {
   text-align: center;
   z-index: 999;
 }
-
 footer p {
   margin: 5px 0;
 }
