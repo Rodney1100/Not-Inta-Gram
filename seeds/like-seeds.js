@@ -32,6 +32,14 @@ const likedata = [
   {
     post_id: 8,
     count: 15
+  },
+  {
+    post_id: 9,
+    count: 9
+  },
+  {
+    post_id: 10,
+    count: 7
   }
 ];
 

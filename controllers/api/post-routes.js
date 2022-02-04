@@ -3,8 +3,7 @@ const { Post, User, Like, Dislike, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
-
-// get all users
+//GET /api/users
 router.get('/', (req, res) => {
     Post.findAll({
         order: [['created_at', 'DESC']],
@@ -13,8 +12,7 @@ router.get('/', (req, res) => {
             'image_url',
             'description',
             'image_name',
-            'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            'created_at'
         ],
         include: [
             // {
@@ -47,6 +45,7 @@ router.get('/', (req, res) => {
 
 });
 
+//GET /api/users/1
 router.get('/:id', (req, res) => {
     Post.findOne({
         where: {
@@ -57,8 +56,7 @@ router.get('/:id', (req, res) => {
             'image_url',
             'description',
             'image_name',
-            'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            'created_at'
         ],
         include: [
             {
@@ -88,6 +86,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
+//POST /api/posts
 router.post('/', withAuth, (req, res) => {
     Post.create({
         image_url: req.body.image_url,
@@ -97,6 +96,16 @@ router.post('/', withAuth, (req, res) => {
     })
         .then(dbPostData => {
             res.json(dbPostData)
+            Like.create({
+                post_id: dbPostData.id,
+                count: 0
+            }) 
+            .then(()=> {
+                Dislike.create({
+                    post_id: dbPostData.id,
+                    count: 0
+                })
+            })
             res.render('feed');
         })
         .catch(err => {
@@ -105,7 +114,9 @@ router.post('/', withAuth, (req, res) => {
         });
 });
 
-// PUT /api/posts/like
+//POST 
+
+// PUT /api/posts/like/1
 router.put('/like/:id', withAuth, (req, res) => {
     Like.update(
         {
@@ -130,7 +141,7 @@ router.put('/like/:id', withAuth, (req, res) => {
         });
 });
 
-// PUT /api/posts/dislike
+// PUT /api/posts/dislike/1
 router.put('/dislike/:id', withAuth, (req, res) => {
     Dislike.update(
         {
@@ -155,6 +166,7 @@ router.put('/dislike/:id', withAuth, (req, res) => {
         });
 });
 
+//PUT /api/posts/1
 router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
@@ -179,7 +191,8 @@ router.put('/:id', withAuth, (req, res) => {
         });
 });
 
-router.delete('/:id', withAuth, (req, res) => {
+// DELETE /api/posts/1
+router.delete('/:id', (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id
@@ -197,4 +210,5 @@ router.delete('/:id', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
+
 module.exports = router;

@@ -35,19 +35,31 @@ const postdata = [
     description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
     image_url: 'https://images2.minutemediacdn.com/image/upload/c_crop,h_1351,w_2400,x_0,y_0/f_auto,q_auto,w_1100/v1571796144/shape/mentalfloss/604599-gettyimages-1083893950.jpg',
     image_name: 'image6',
-    user_id: 4
+    user_id: 3
   },
   {
     description: 'In hac habitasse platea dictumst.',
     image_url: 'https://ichef.bbci.co.uk/images/ic/1200x675/p049tgdb.jpg',
     image_name: 'image7',
-    user_id: 1
+    user_id: 2
   },
   {
     description: 'Morbi non quam nec dui luctus rutrum.',
     image_url: 'https://cdn.vox-cdn.com/thumbor/6S34LwI4uPFuoCwOSX365nfJf_0=/0x0:3504x2336/1400x1050/filters:focal(1236x1025:1796x1585):no_upscale()/cdn.vox-cdn.com/uploads/chorus_image/image/65816344/pig_GettyImages_131967915.0.jpg',
     image_name: 'image8',
-    user_id: 1
+    user_id: 6
+  },
+  {
+    description: 'In hac habitasse platea dictumst.',
+    image_url: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cute-baby-animals-1558535060.jpg',
+    image_name: 'image9',
+    user_id: 5
+  },
+  {
+    description: 'Morbi non quam nec dui luctus rutrum.',
+    image_url: 'https://i.insider.com/5c79a8cfeb3ce837863155f5?width=750&format=jpeg&auto=webp',
+    image_name: 'image10',
+    user_id: 9
   }
 ];
 

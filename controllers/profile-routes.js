@@ -3,7 +3,8 @@ const sequelize = require('../config/connection');
 const { Post, User, Like, Dislike, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
+// GET /profile
+router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
             user_id: req.session.user_id
@@ -13,8 +14,7 @@ router.get('/', (req, res) => {
             'image_url',
             'description',
             'image_name',
-            'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            'created_at'
         ],
         include: [
             {
@@ -34,10 +34,10 @@ router.get('/', (req, res) => {
         .then(dbPostData => {
             const posts = dbPostData.map(post => post.get({ plain: true }));
             User.findOne({
-                    where: {
-                        id: req.session.user_id
-                    },
-                    attributes: ['id', 'username']
+                where: {
+                    id: req.session.user_id
+                },
+                attributes: ['id', 'username']
             }).then(dbUserData => {
                 res.render('profile', {
                     posts,
@@ -46,15 +46,14 @@ router.get('/', (req, res) => {
                     loggedIn: req.session.loggedIn
                 });
             })
-    // pass a single post object into the homepage template
-    
-})
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
+// GET /profile/edit/1
 router.get('/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
@@ -65,8 +64,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
             'image_url',
             'description',
             'image_name',
-            'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            'created_at'
         ],
         include: [
             {

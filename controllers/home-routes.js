@@ -1,18 +1,18 @@
+
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Like, Dislike, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
-
-router.get('/', (req, res) => {
-    console.log(req.session);
+// GET /
+router.get('/', withAuth, (req, res) => {
     Post.findAll({
         attributes: [
             'id',
             'image_url',
             'description',
             'image_name',
-            'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+            'created_at'
         ],
         include: [
             // {
@@ -39,7 +39,6 @@ router.get('/', (req, res) => {
     })
         .then(dbPostData => {
             const posts = dbPostData.map(post => post.get({ plain: true }));
-            // pass a single post object into the homepage template
             res.render('feed', {
                 posts,
                 loggedIn: req.session.loggedIn
@@ -51,7 +50,8 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/post/:id', (req, res) => {
+// GET /post/1
+router.get('/post/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -62,7 +62,6 @@ router.get('/post/:id', (req, res) => {
             'description',
             'image_name',
             'created_at',
-            // [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
         ],
         include: [
             // {

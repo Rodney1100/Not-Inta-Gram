@@ -32,6 +32,14 @@ const dislikeData = [
   {
     post_id: 8,
     count: 5
+  },
+  {
+    post_id: 9,
+    count: 4
+  },
+  {
+    post_id: 10,
+    count: 8
   }
 ];
 

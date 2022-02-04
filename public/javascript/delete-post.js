@@ -27,12 +27,7 @@ async function deleteFormHandler(event) {
             const imageRef = ref(storage, postData.image_url)
             deleteObject(imageRef).then(() => {
                 console.log('successfully deleted image file off cloud');
-            })
-                .catch((err) => {
-                    console.log(err);
-                    alert(err.message);
-                })
-            fetch(`/api/posts/${id}`, {
+                fetch(`/api/posts/${id}`, {
                     method: 'DELETE'
                 })
                     .then(() => {
@@ -43,7 +38,11 @@ async function deleteFormHandler(event) {
                         console.log(err);
                         alert(err.message);
                     });
-
+            })
+                .catch((err) => {
+                    console.log(err);
+                    alert(err.message);
+                })
 
         })
 }

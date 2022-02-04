@@ -1,4 +1,5 @@
 const signUpForm = document.querySelector(".signup-form");
+
 function signupFormHandler(event) {
   event.preventDefault();
 
@@ -16,8 +17,8 @@ function signupFormHandler(event) {
       }),
       headers: { "Content-Type": "application/json" },
     })
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        document.location.replace('/');
       })
       .catch((error) => {
         console.log(error);
@@ -26,4 +27,3 @@ function signupFormHandler(event) {
 }
 
 signUpForm.addEventListener("submit", signupFormHandler);
-// document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
