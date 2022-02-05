@@ -1,0 +1,28 @@
+<div class="container2">
+<div class="profile-cont center">
+  <div id="profileData" class="profile-card card-small">
+    <div>
+      <span class="dot"></span>
+    </div>
+    <div>
+      <h3>{{username}}</h3>
+    </div>
+    {{!-- <button id="profileEdits">
+      Edit Profile
+    </button> --}}
+    <div class="text mt-3 " contenteditable="true" onload="checkEdits()">
+    </div>
+  </div>
+</div>
+
+<div class="profile-posts p-4">
+  <ul class=" post-list ">
+    {{#each posts as |post|}}
+    <li class="center-align">
+      {{> profile-post-info }}
+    </li>
+    {{/each}}
+  </ul>
+</div>
+</div>
+<script src="/javascript/profile.js"></script>

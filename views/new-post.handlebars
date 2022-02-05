@@ -1,0 +1,31 @@
+<form action="#" class="container" id="new-post-form">
+  <span class="">
+    <h3> Create Post</h3>
+  </span>
+  <div class="file-field input-field">
+    <div class="btn profile100">
+      <span>Upload JPEG/PNG image</span>
+      <input id="image" name="image" type="file" />
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <textarea
+        placeholder="Enter Post Description/Message"
+        name="description-body"
+        id="description-body"
+        class="materialize-textarea"
+        data-length="120"
+      ></textarea>
+      <label for="textarea2"></label>
+    </div>
+  </div>
+  <div>
+    <button type="submit">Post</button>
+  </div>
+</form>
+
+<script type="module" src="/javascript/add-post.js"></script>

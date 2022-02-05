@@ -1,0 +1,22 @@
+<div class="single-post1 profile100 row col s12 m6 center-align">
+  <div class="">
+    <div class="card hoverable s6 single-post">
+      <div class="card-image">
+        <img src={{post.image_url}}>
+      </div>
+      <div class="center-align">
+      <a class="waves-effect waves-light btn green" id="like-btn"><i class="material-icons">thumb_up</i></a>
+      <span id="like-count">Likes</span> 
+      <a class="waves-effect waves-light btn red" id="dislike-btn"><i class="material-icons">thumb_down</i></a>
+      <span id="dislike-count">Dislikes</span> 
+      </div>
+      <div class="card-content">
+        <span class="card-title">{{post.user.username}}</span>
+        <p>{{post.description}}</p>
+        {{format_date post.created_at}}
+      </div>
+    </div>
+  </div>
+
+  <script src="/javascript/like.js"></script>
+  <script src="/javascript/dislike.js"></script>

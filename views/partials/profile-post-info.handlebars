@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="">
+    <div class="posts1 card z-depth-4 profile100 hoverable">
+      <div class="card-image">
+        <img src={{image_url}} />
+      </div>
+      <div class="center-align">
+        <a
+          href="/post/{{id}}"
+          class="waves-effect waves-light btn green"
+          id="like-btn"
+        ><i class="material-icons">thumb_up</i></a>
+        {{like.count}}
+        {{format_plural "like" like.count}}
+        <a
+          href="/post/{{id}}"
+          class="waves-effect waves-light btn red"
+          id="dislike-btn"
+        ><i class="material-icons">thumb_down</i></a>
+        {{dislike.count}}
+        {{format_plural "dislike" dislike.count}}
+      </div>
+      <div class="card-content">
+        <h4 class="card-title">{{user.username}}</h4>
+        <h5>{{description}}</h5>
+        {{format_date created_at}}
+      </div>
+      <a class="waves-effect waves-light btn" href="profile/edit/{{id}}">Edit
+        Post</a>
+    </div>
+  </div>
+</div>
