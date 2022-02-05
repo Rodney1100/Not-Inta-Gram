@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="posts1 s6 hoverable">
+  <div class="posts1 s6 center profile100 hoverable">
     <div class="discription card">
       <div class="card-image">
         <img src={{image_url}} />
@@ -7,13 +7,13 @@
       <div class="center-align">
         <a
           href="/post/{{id}}"
-          class="waves-effect waves-light btn-large green"
+          class="waves-effect waves-light btn green"
           id="like-btn"
         ><i class="material-icons">thumb_up</i></a>
         {{like.count}}{{format_plural "like" like.count}}
         <a
           href="/post/{{id}}"
-          class="waves-effect waves-light btn-large red"
+          class="waves-effect waves-light btn red"
           id="dislike-btn"
         ><i class="material-icons">thumb_down</i></a>
         {{dislike.count}}

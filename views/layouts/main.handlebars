@@ -13,14 +13,14 @@
 </head>
 
 <body>
-    <div class="container2 main-container grey darken-2">
-        <header class="">
-            <nav class="grey darken-3 nav1">
-                <div>
-                    {{#if loggedIn}}
-                    <a href="/" class="brand-logo left"> Not Inta Gram</a>
+    <div id="mainContainer" class="container2 main-container grey darken-2">
+        <header >
+
+            <nav class="grey darken-2 nav1">
+                       {{#if loggedIn}}
+                    <a href="#" id="logo1" class="brand-logo">Not Inta Gram</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <ul class="right hide-on-med-and-down">
                         <li><a href="/new" class="">+ Post</a></li>
                         <li><a href="/">Feed</a></li>
                         <li><a href="/profile">My Profile</a></li>
@@ -28,14 +28,13 @@
                         {{else}}
                         {{/if}}
                     </ul>
-                </div>
+                <ul class="sidenav" id="mobile-demo">
+                 <li><a href="/new" class="">+ Post</a></li>
+                        <li><a href="/">Feed</a></li>
+                        <li><a href="/profile">My Profile</a></li>
+                        <li><a id="logout1">logout</a></li>
+                </ul>
             </nav>
-            <ul class="sidenav" id="mobile-demo">
-                <li><a href="/new" class="">+ Post</a></li>
-                <li><a href="/">Feed</a></li>
-                <li><a href="/profile">My Profile</a></li>
-                <li><a id="logout">logout</a></li>
-            </ul>
         </header>
         <main>
             {{{body}}}
@@ -48,6 +47,8 @@
         <p>&copy; Group Awesome</p>
     </footer>
     {{!-- import materialize javascript--}}
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="/javascript/mat.js"></script>
 </body>
